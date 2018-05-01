@@ -1,6 +1,6 @@
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
-
+const token = wx.getStorageSync('token');
 Page({
     data: {
         sign:[],
@@ -20,18 +20,23 @@ Page({
     getSign:function (sign) {
         let url=`${config.service.host}/sign?sign=${sign}`;
         let that=this;
-        const token = wx.getStorageSync('token');
         wx.request({
             url:url,
             header:{
-                'Authorization':`${token}`,
+                'Authorization': token,
                 'content-type': 'application/json'
             },
             success:function (res) {
-                console.log(res);
-                that.setData({
-                    sign:res.data.info
-                })
+              console.log(res);
+              let data=res.data.info;
+              data.all = parseInt(data.all);
+              data.health = parseInt(data.health);
+              data.love = parseInt(data.love);
+              data.money = parseInt(data.money);
+              that.setData({
+                sign: data
+              })
+              console.log(data);
             }
         })
     }

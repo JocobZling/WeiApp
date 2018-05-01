@@ -1,0 +1,75 @@
+/* pages/clockManage/clockManage.wxss */
+page{
+    background-color: #ffffff;
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+    font-size: 32rpx;
+    
+}
+
+.navigator-hover{
+    background: none;
+}
+.header{
+    position: relative;
+    height: 160rpx;
+    line-height: 100rpx;
+    padding:30rpx 30rpx 30rpx 150rpx;
+    box-sizing: border-box;
+    background: #008792;
+    font-size: 28rpx;
+    color: #fff;
+}
+.header .thumb{
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.header .about{
+    float: right;
+}
+.body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+.bodytail{
+  height: 100rpx;
+  background-color: #ffffff;
+}
+.tail{
+  display: flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+  align-content: flex-end;
+  width:100%; 
+  position:fixed; 
+  bottom:0; 
+  background-color: #ffffff;
+}
+.delete{
+  width: 250rpx;
+}
+
+.studyItem{
+    display: flex;
+    height: 200rpx;
+}
+.studyTimeImage{
+    width: 30rpx;
+    height:200rpx;
+    margin-left: 10px;
+}
+.studyTimeDate{
+    margin-left: 10rpx;
+}
+
+.studyTimeDetail{
+    height:70px;
+}
+image{
+    height: 70px;
+}
