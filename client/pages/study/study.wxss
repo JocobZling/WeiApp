@@ -1,0 +1,41 @@
+.camera-icon {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    margin-left: 45%;
+}
+.line{
+    width: 100%;
+    height: 150rpx;
+}
+.studyList{
+
+}
+.studyItem{
+    display: flex;
+    height: 200rpx;
+}
+.studyTimeImage{
+    width: 30rpx;
+    height:200rpx;
+    margin-left: 10px;
+}
+.studyTimeDate{
+    margin-left: 10rpx;
+}
+
+.studyTimeDetail{
+    height:70px;
+}
+image{
+    height: 70px;
+}
+
+.inner.del{
+    background-color: #e64340;
+    width: 180rpx;
+    text-align: center;
+    z-index: 4;
+    right: 0;
+    color: #fff
+}

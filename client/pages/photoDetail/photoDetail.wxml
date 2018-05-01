@@ -1,0 +1,7 @@
+<view class="canvas_area">
+
+    <canvas canvas-id="myCanvas" class="myCanvas"
+    style="height:{{system[0].height}};width:{{system[0].width}};color: #c7c7c7">
+  <image class="image" src="https://jocobzling.mynatapp.cc/photoBackgroud.png"></image>
+    </canvas>
+</view>

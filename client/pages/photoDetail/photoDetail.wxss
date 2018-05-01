@@ -1,0 +1,9 @@
+.myCanvas{
+    height:1206rpx ;
+    width: 750rpx;
+    background-size:750rpx 1206rpx;
+}
+.image{
+    height:1206rpx ;
+    width: 750rpx;
+}

@@ -1,0 +1,46 @@
+Page{
+    background: url("http://www.htmlandcssbook.com/code-samples/chapter-16/images/tulip.gif")
+    no-repeat right bottom;
+}
+.reply, .send{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.send{
+    justify-content: flex-end;
+}
+.photo{
+    width:50px;
+    height:50px;
+    background-color: gainsboro;
+}
+.text{
+    max-width: 250px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color:gainsboro;
+    padding: 10px;
+    border-radius:5px
+}
+.sendMsg{
+    display: flex;
+    position:fixed;
+    bottom:0;
+    margin: 10px;
+}
+.inputMsg{
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border:2rpx solid #665544;
+}
+.sendBtn{
+    background-color: black;
+    color: #FFFFFF;
+    height:40px;
+    font-size: 12px;
+}
+a{
+    display: inline;
+}

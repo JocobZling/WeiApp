@@ -1,0 +1,51 @@
+<view class="page-header">
+    <text class="page-header-text">今日运势</text>
+</view>
+<scroll-view class="page-body" scroll-y="true">
+    <form bindsubmit="send">
+        <view class="sendMsg">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">星座</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindchange="send" placeholder="请输入查询星座"/>
+                </view>
+            </view>
+        </view>
+    </form>
+    <view class="weatherResult">
+        <view class="result">
+            <text>总体运势：{{sign.all}}</text>
+        </view>
+        <view class="result">
+            <text>健康运势：{{sign.health}}</text>
+        </view>
+        <view class="result">
+            <text>爱情运势：{{sign.love}}</text>
+        </view>
+        <view class="result">
+            <text>金钱运势：{{sign.money}}</text>
+        </view>
+        <view class="result">
+            <text>幸运色：{{sign.color}}</text>
+        </view>
+        <view class="result">
+            <text>幸运数字：{{sign.number}}</text>
+        </view>
+        <view class="result">
+            <text>友好星座：{{sign.QFriend}}</text>
+        </view>
+        <view class="result">
+            <text>总结：{{sign.summary}}</text>
+        </view>
+    </view>
+    <view style="height: 70px"></view>
+    <view class="weui-footer">
+        <view class="weui-footer__links">
+            <navigator url="https://github.com/JocobZling" class="weui-footer__link">HouseKeeper</navigator>
+        </view>
+        <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+    </view>
+</scroll-view>
+

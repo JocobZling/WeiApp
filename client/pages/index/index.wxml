@@ -1,0 +1,16 @@
+<view class="main">
+    <view class="header">
+        <image src="{{thumb}}" class="thumb"></image>
+        <text class="nickname">{{nickname}}</text>
+    </view>
+    <view class="address-box">
+        <view class="address-manage" bindtap="study">
+           背书管理
+        </view>
+    </view>
+    <view class="orders-box">
+        <view class="orders" bindtap="study">打卡管理</view>
+    </view>
+</view>
+
+

@@ -1,0 +1,43 @@
+<view class="page-header">
+    <text class="page-header-text">天气查询助手</text>
+</view>
+
+<form bindsubmit="send">
+    <view class="sendMsg">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">城市</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" bindchange="send" placeholder="请输入查询城市"/>
+            </view>
+        </view>
+    </view>
+</form>
+
+<view class="weatherResult">
+    <view class="result">
+        <text>地区：{{weather[0].today.city}}</text>
+    </view>
+    <view class="result">
+        <text>日期：{{weather[0].today.date_y}}</text>
+    </view>
+    <view class="result">
+        <text>天气：{{weather[0].today.weather}}</text>
+    </view>
+    <view class="result">
+        <text>气温：{{weather[0].today.temperature}}</text>
+    </view>
+    <view class="result">
+        <text>风型：{{weather[0].today.wind}}</text>
+    </view>
+    <view class="result">
+        <text>穿衣建议：{{weather[0].today.dressing_advice}}</text>
+    </view>
+</view>
+<view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__links">
+        <navigator url="https://github.com/JocobZling" class="weui-footer__link">HouseKeeper</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+</view>

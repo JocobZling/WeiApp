@@ -1,0 +1,165 @@
+Page{
+    background-image: url("https://jocobzling.mynatapp.cc/back4.jpg");
+    background-size: 750rpx 1206rpx;
+}
+.pageHeaderSelect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+.pageHeaderSelect image{
+    width: 100%;
+    height: 50rpx;
+}
+.step{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+.step1{
+    display: flex;
+    flex-direction: column;
+}
+.step2{
+    display: flex;
+    flex-direction: column;
+}
+.item{
+    margin: 5px;
+}
+
+.step1 .study{
+    height: 400rpx;
+    width: 300rpx;
+    margin: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+}
+.step1 .study image{
+    width: 280rpx;
+    height: 280rpx;
+    margin: 10rpx;
+    align-content: center;
+}
+.step1 .study view{
+    text-align: center;
+}
+
+.step1 .selectWeather{
+    height: 200rpx;
+    width: 300rpx;
+    margin: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+}
+.step1 .selectWeather image{
+    width: 150rpx;
+    height: 150rpx;
+    margin: 10rpx;
+}
+.step1 .selectWeather view{
+    font-size: 40rpx;
+}
+
+.step1 .selectSign{
+    height: 200rpx;
+    width: 300rpx;
+    margin: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+}
+.step1 .selectSign image{
+    width: 150rpx;
+    height: 150rpx;
+    margin: 10rpx;
+}
+.step1 .selectSign view{
+    font-size: 40rpx;
+}
+
+.step2 .chat{
+     height: 200rpx;
+     width: 300rpx;
+     margin: 20rpx;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+ }
+.step2 .chat image{
+    width: 150rpx;
+    height: 150rpx;
+}
+.step2 .chat view{
+    text-align: center;
+}
+
+.step2 .clock{
+    height: 400rpx;
+    width: 300rpx;
+    margin: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+}
+.step2 .clock image{
+    width: 280rpx;
+    height: 280rpx;
+    margin: 10rpx;
+    align-content: center;
+}
+.step2 .clock view{
+    text-align: center;
+}
+
+.step2 .super{
+    height: 200rpx;
+    width: 300rpx;
+    margin: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10rpx;
+    border-color: #666666;
+    border-style: solid solid solid solid;
+    border-width: 2rpx;
+    box-shadow: #666666 0rpx 0rpx 8rpx;
+}
+.step2 .super image{
+    width: 150rpx;
+    height: 150rpx;
+    margin: 10rpx;
+}
+.step2 .super view{
+    font-size: 40rpx;
+}

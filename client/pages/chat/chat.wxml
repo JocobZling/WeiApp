@@ -1,0 +1,66 @@
+<view class="page-header">
+    <text class="page-header-text">聊天机器人</text>
+</view>
+<scroll-view scroll-y="true" style="height:480px" scroll-top="{{scrollTop}}">
+    <view class="reply">
+        <image class="photo" src="/images/robot.jpg"></image>
+        <text class="text">小可爱你好，快点跟我开心的聊天吧嘻嘻！</text>
+    </view>
+    <block wx:for="{{msgList}}" wx:key="msgList">
+        <view class="send" wx:if="{{item.type==0}}">
+            <text class="text">{{item.msg}}</text>
+            <image class="photo" src="/images/Me.png"></image>
+        </view>
+        <view wx:if="{{item.type==1&&item.code==200000}}">
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <text class="text">{{item.msg}}</text>
+            </view>
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <a class="text" href="{{item.url}}">{{item.url}}</a>
+            </view>
+        </view>
+        <view wx:if="{{item.type==1&&item.code==308000}}">
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <text class="text">{{item.list[0].name}}</text>
+            </view>
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <image class="text" src="{{item.list[0].icon}}"></image>
+            </view>
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <a class="text" href="{{item.url}}">{{item.list[0].detailurl}}</a>
+            </view>
+        </view>
+        <view wx:if="{{item.type==1&&item.code==302000}}">
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <text class="text">{{item.list[0].article}}</text>
+            </view>
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <image class="text" src="{{item.list[0].icon}}"></image>
+            </view>
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <a class="text" href="{{item.url}}">{{item.list[0].detailurl}}</a>
+            </view>
+        </view>
+        <view wx:if="{{item.type==1&&(item.code==100000||item.code==000000)}}">
+            <view class="reply">
+                <image class="photo" src="/images/robot.jpg"></image>
+                <text class="text">{{item.msg}}</text>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+
+<form bindsubmit="send">
+    <view class="sendMsg">
+        <textarea name="msg" class="inputMsg"/>
+        <button form-type="submit" class="sendBtn">send</button>
+    </view>
+</form>

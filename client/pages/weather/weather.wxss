@@ -1,0 +1,35 @@
+Page{
+    display: flex;
+    flex-direction: column;
+    background: url("http://www.htmlandcssbook.com/code-samples/chapter-16/images/tulip.gif")
+    no-repeat right bottom;
+}
+text{
+    font-family:"Monotype Corsiva"
+}
+.sendMsg{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 30px 40px 15px 40px;
+}
+.inputMsg{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 5rpx;
+    border:2rpx solid #665544;
+    overflow: auto;
+}
+.sendBtn{
+    margin-top: -2rpx;
+}
+.weatherResult{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-left: 40px;
+}
+.result{
+    margin-top: 10px;
+}

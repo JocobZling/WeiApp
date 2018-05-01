@@ -1,0 +1,18 @@
+@import 'style/weui.wxss';
+.page-header {
+    display: flex;
+    /*横向居中*/
+    justify-content: center;
+    border-bottom: 2rpx solid #ccc;
+    margin-bottom: 10rpx;
+}
+
+.page-header-text {
+    padding: 10rpx 40rpx;
+    color: #666666;
+    border-bottom-color:white;
+    font-size: 40rpx;
+}
+Page{
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+}

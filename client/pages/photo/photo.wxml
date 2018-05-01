@@ -1,0 +1,5 @@
+<view>
+    <button class="button" bindtap="choose">
+        <view class="text">surprise</view>
+    </button>
+</view>

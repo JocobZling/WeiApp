@@ -1,0 +1,22 @@
+.text{
+    width: 700rpx;
+    height: 400rpx;
+    background-size: 400rpx 700rpx;
+    margin-top:25rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+}
+.text view{
+    color: white;
+    margin: 40rpx;
+}
+button{
+    width: 700rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    margin-bottom: 25rpx;
+    border-style: solid solid solid solid;
+    border-color: #e5e5e5;
+    border-width: 3rpx;
+    box-shadow: #666666 0rpx 0rpx 10rpx;
+}

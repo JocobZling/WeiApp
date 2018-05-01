@@ -1,0 +1,18 @@
+<view class="image">
+    <image bindtap="chooseimage" class="camera-icon" src="../../images/camera.png"></image>
+</view>
+<view>
+    <image class="line" src="../../images/line.png"></image>
+</view>
+
+<view class="studyItem" wx:for="{{imagePosition}}" wx:key="key">
+    <image class="studyTimeImage" src="../../images/time.png"></image>
+    <view class="studyTimeDate">
+        <text>{{item.date}}</text>
+        <navigator url="../studyDetail/studyDetail?id={{item.id}}">
+            <view class="studyTimeDetail">
+                <image src="{{item.position}}" mode="center"></image>
+            </view>
+        </navigator>
+    </view>
+</view>

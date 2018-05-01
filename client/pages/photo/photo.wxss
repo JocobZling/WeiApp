@@ -1,0 +1,19 @@
+Page{
+    background-image: url("https://jocobzling.mynatapp.cc/back.jpg");
+    background-size:750rpx 1206rpx;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.button{
+    height: 395rpx;
+    width: 395rpx;
+    border-radius:395rpx;
+    background-color:transparent;
+    margin-top: 476rpx;
+    font-size:80rpx;
+    border:10rpx dashed red;
+}
+.text{
+    margin-top: 70rpx;
+    color: #A60000;
+}
