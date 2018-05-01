@@ -16,16 +16,36 @@
     </form>
     <view class="weatherResult">
         <view class="result">
-            <text>总体运势：{{sign.all}}</text>
+          <view class="result1">
+            <text>总体运势：</text>
+          </view>
+          <view class="result2">
+            <progress percent="{{sign.all}}"  activeColor="#008792" show-info/>
+          </view>
         </view>
         <view class="result">
-            <text>健康运势：{{sign.health}}</text>
+          <view class="result1">
+            <text>健康运势：</text>
+          </view>
+          <view class="result2">
+            <progress percent="{{sign.health}}"  activeColor="#008792" show-info/>
+          </view>
         </view>
         <view class="result">
-            <text>爱情运势：{{sign.love}}</text>
+          <view class="result1">
+            <text>爱情运势：</text>
+          </view>
+          <view class="result2">
+            <progress percent="{{sign.love}}"  activeColor="#008792" show-info/>
+          </view>
         </view>
         <view class="result">
-            <text>金钱运势：{{sign.money}}</text>
+          <view class="result1"> 
+            <text>金钱运势：</text>
+          </view>
+          <view class="result2">
+            <progress percent="{{sign.money}}"  activeColor="#008792" show-info/>
+          </view>
         </view>
         <view class="result">
             <text>幸运色：{{sign.color}}</text>

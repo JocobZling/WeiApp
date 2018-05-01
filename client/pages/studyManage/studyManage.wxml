@@ -1,0 +1,28 @@
+<!--pages/clockManage/clockManage.wxml-->
+<view class="main">
+    <view class="header">
+        <image src="{{thumb}}" class="thumb"></image>
+        <text class="nickname">{{nickname}}</text>
+    </view>
+
+    <scroll-view class="body" scroll-y="true" scroll-top="{{scrollTop}}">
+      <view class="studyItem" wx:for="{{imagePosition}}">
+        <icon wx:if="{{item.check}}" type="success_circle" size="25" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
+        <icon wx:else type="circle" size="25" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
+        <view class="studyTimeDate">
+            <text>{{time}}</text>
+            <image src="{{item.image}}" mode="center"></image>
+        </view>
+      </view>
+      <view class="bodytail">
+      </view>
+    </scroll-view>
+
+
+    <view class="tail">
+      <view class="Button">
+        <button class="delete" type="warn" form-type="submit" bindtap="Delete">删除</button>
+      </view>
+    </view>
+
+</view>

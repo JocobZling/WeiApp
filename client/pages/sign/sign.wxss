@@ -38,7 +38,16 @@ text{
     margin-left: 20px;
 }
 .result{
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  margin-top: 10px;
+}
+.result1{
+  width: 100px;
+}
+.result2{
+  width: 230px;
 }
 .weui-footer{
     margin-bottom: 0px;
