@@ -1,0 +1,154 @@
+/* pages/clockDetailnew/clockDetailnew.wxss */
+
+.title{
+  height: 40rpx;
+  margin: 10rpx;
+}
+.schedule{
+  margin: 10rpx;
+}
+.scheduleText{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.initiatorName{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 60rpx;
+}
+.initiatorImg{
+  height: 40rpx;
+  width: 40rpx;
+  margin: 10rpx;
+}
+.rule{
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+.rules{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.rulesImg{
+  height: 50rpx;
+  width: 50rpx;
+}
+.info .text{
+  margin: 10rpx;
+  width: 100%;
+}
+.info .text text{
+	font-size:13px;
+  color: #6c6c6c;
+	overflow: hidden;
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.controlText{
+	text-align: center;
+}
+.controlText text{
+	display:inline-block;
+	width:28px;
+	height:20px;
+}
+.controlText text:after{
+	content:'';
+	display: block;
+	width:10px;
+	height:10px;
+	border: 1px solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(45deg);
+}
+.down text:after{
+	content:'';
+	display: block;
+	width:10px;
+	height:10px;
+	border: 1px solid;
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(-135deg);
+}
+.function{
+  height: 60rpx;
+  width: 60rpx;
+}
+.functionBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10rpx;
+}
+.notice{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rankingList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.record{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.participate{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 110rpx;
+  background: #B3D9D9;
+}
+.participateBtn{
+  font-size: 30rpx;
+  color: #008792;
+  width: 700rpx;
+  margin: 20rpx
+}
+.leavingMessage{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 20rpx;
+}
+.msgImg{
+  width: 100rpx;
+}
+.msgText{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.msgText .text{
+  display: flex;
+  flex-direction: column;
+}
+.thumb{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 7rpx;
+}
+.msgicon{
+  width: 30rpx;
+  height: 30rpx;
+}

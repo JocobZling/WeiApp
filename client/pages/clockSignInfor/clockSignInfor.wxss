@@ -1,0 +1,35 @@
+/* pages/clockSignInfor/clockSignInfor.wxss */
+Page{
+    display: flex;
+    flex-direction: column;
+    background-color:#f0f0f0;
+}
+.main{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: 15rpx;
+}
+.signBtn{
+  display: flex;
+  height: 100rpx;
+  flex-direction: row;
+  align-items: center;
+}
+.signmsg{
+  background-color: #ffffff;
+  height: 400rpx;
+  width: 100%;
+}
+.cancel{
+  position: absolute;
+  left: 30rpx;
+  font-size: 25rpx;
+}
+.release{
+  position: absolute;
+  right: 30rpx;
+  font-size: 25rpx;
+  background-color: #008792;
+  color: #ffffff;
+}
