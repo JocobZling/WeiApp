@@ -10,20 +10,17 @@
 
 <view class="button">
     <button class="join" bindtap="join" style="background-color: #008792;color:white">加入一个好玩的打卡</button>
-    <button class="create" bindtap="create">+创建一个新的打卡</button>
-</view>
-
+  </view>
 
 <view class="myJoin">
-    <image class="image" src="../../images/line3.png"></image>
     <text>我参与的打卡</text>
-    <view wx:for="{{list}}">
+    <view wx:key="key" wx:for="{{list}}">
         <navigator url="../clockDetail/clockDetail?id={{item.id}}&exist=1">
             <view class="detail">
                 <image class="icon" src="{{item.image}}"></image>
                 <view class="text">
                     <view class="detailTitle">{{item.name}}</view>
-                    <view class="owner">{{item.owner}}</view>
+                    <view class="owner">{{item.detail}}</view>
                 </view>
             </view>
         </navigator>

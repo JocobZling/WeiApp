@@ -1,0 +1,97 @@
+@import '../../template/calendar/index.wxss';
+page {
+    background-color: ghostwhite;
+    font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "\9ED1\4F53", Arial, sans-serif;
+    font-size: 32rpx;
+}
+
+.navigator-hover {
+    background: none;
+}
+
+.header {
+    position: relative;
+    height: 280rpx;
+    line-height: 100rpx;
+    padding: 30rpx 30rpx 30rpx 150rpx;
+    box-sizing: border-box;
+    background: #A60000;
+    font-size: 28rpx;
+    color: #fff;
+    display: flex;
+    flex-direction: column
+}
+
+.header .thumb {
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.header .about {
+    float: right;
+}
+
+.header .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header .item view {
+    margin: 3rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+.header .item text {
+    height: 40rpx;
+    text-align:center;
+
+}
+.calendar-wrap {
+    padding: 0 10rpx 20rpx;
+    margin:20rpx;
+    background-color: white;
+}
+.calendar-wrap button{
+    height: 70rpx;
+    width: 200rpx;
+    font-size: 26rpx;
+    background-color:grey;
+    color: white;
+}
+
+.MyRecord{
+    margin:20rpx;
+    padding: 10rpx;
+    background-color: red;
+}
+.MyRecord .thumb {
+    width: 50rpx;
+    height:50rpx;
+    border-radius: 50%;
+    margin: 20rpx;
+}
+.detailTitle{
+    align-content: center;
+    font-size: 30rpx;
+}
+.owner{
+    align-content: center;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    font-size: 40rpx;
+}
+.detail{
+    display: flex;
+    border-style:none none solid none;
+    border-width:3rpx;
+    border-color: #c0c0c0;
+}
+

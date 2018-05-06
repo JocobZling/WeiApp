@@ -1,0 +1,44 @@
+<import src="../../template/calendar/index.wxml"/>
+<view class="main">
+    <view class="header">
+        <view>
+            <image src="{{thumb}}" class="thumb"></image>
+            <text class="nickname">{{nickname}}</text>
+        </view>
+        <view class="item">
+            <view>
+                <text>100</text>
+                <text>当前排名</text>
+            </view>
+            <view>
+                <text>2</text>
+                <text>累计签到</text>
+            </view>
+            <view>
+                <text>2</text>
+                <text>连续签到</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view>
+    <view class="calendar-wrap">
+        <template is="calendar" data="{{...calendar}}" />
+        <button>当天已签到</button>
+    </view>
+
+</view>
+<view class="MyRecord">
+    <view style="border-width:3rpx;border-color: #c0c0c0; border-style:none none solid none">
+        <text>-L的签到记录</text>
+    </view>
+    <view class="detail">
+        <image src="{{thumb}}" class="thumb"></image>
+        <view class="text">
+            <view class="detailTitle">-L</view>
+            <view class="owner">
+                今天打卡很开心！
+            </view>
+        </view>
+    </view>
+</view>

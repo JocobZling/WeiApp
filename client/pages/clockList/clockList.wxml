@@ -3,7 +3,7 @@
         <view style="height: 30rpx"></view>
         <view>{{item.name}}</view>
         <view>发起人：{{item.owner}}</view>
-        <view>{{item.detaile}}</view>
+        <view>{{item.detail}}</view>
     </view>
     <view>
         <navigator url="../clockDetail/clockDetail?id={{item.id}}&exist={{item.exist}}">

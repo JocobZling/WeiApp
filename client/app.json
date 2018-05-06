@@ -1,12 +1,13 @@
 {
   "pages": [
+
     "pages/hello/hello",
+    "pages/clockIndex/clockIndex",
     "pages/select/select",
     "pages/study/study",
     "pages/studyDetail/studyDetail",
     "pages/studyManage/studyManage",
     "pages/clockList/clockList",
-    "pages/clockIndex/clockIndex",
     "pages/photo/photo",
     "pages/chat/chat",
     "pages/weather/weather",
@@ -14,8 +15,8 @@
     "pages/photoDetail/photoDetail",
     "pages/clockDetail/clockDetail",
     "pages/clockManage/clockManage",
-    "pages/index/index"
-
+    "pages/index/index",
+    "pages/clockRecord/clockRecord"
   ],
   "window": {
     "backgroundColor": "#008792",

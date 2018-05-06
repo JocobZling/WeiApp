@@ -7,8 +7,12 @@ const ClockSchema = new Schema(
         createDate:{type:String},
         name:{type:String},
         owner:{type:String},
-        images: {type: String},
+        image: {type: String},
         detail:{type:String},
+        clockDetail:[{
+           date:String,
+           info:String
+        }],
         user:[{
             openid:String,
             joinDate:String
