@@ -50,6 +50,7 @@ app.use('/photo', photoRouter);
 let displayStudyItemsRouter = require('./router/displayStudyItemsRouter');
 app.use('/study', displayStudyItemsRouter);
 
+
 //保存用户信息
 let getUserSession = require('./router/getUserSession');
 app.use('/wx', getUserSession);
@@ -57,6 +58,10 @@ app.use('/wx', getUserSession);
 //展示单独图片信息到页面
 let displayStudyDetail = require('./router/displayStudyDetail');
 app.use('/detail', displayStudyDetail);
+
+//删除我的背书内容
+let getUser = require('./router/deleteStudyItems');
+app.use('/deleteStudyItems', getUser);
 
 //展示我加入的打卡
 let displayMyClockRouter = require('./router/displayMyClockRouter');
@@ -78,9 +83,7 @@ app.use('/joinClock', joinClockRouter);
 let checkClockRouter = require('./router/checkClockRouter');
 app.use('/checkClock', checkClockRouter);
 
-//显示我所有动态的
-let getUser = require('./router/getUserRouter');
-app.use('/me', getUser);
+
 
 // 监听端口，等待连接
 const port = 8080;

@@ -18,7 +18,7 @@ Page({
                 let data = res.data;
                 console.log(data.images);
                 var key = "check";
-                var value = "0" 
+                var value = "0";
                 for(let item of data.images){
                   item[key]=value;
                 }

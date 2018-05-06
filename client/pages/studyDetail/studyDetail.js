@@ -1,9 +1,9 @@
 const config = require('../../config');
 const token = wx.getStorageSync('token');
 const ctx = wx.createCanvasContext('myCanvas');
-var screenWidth=0;
-var screenHeight=0;
-var pixelRatio=0; //设备像素比
+var screenWidth = 0;
+var screenHeight = 0;
+var pixelRatio = 0; //设备像素比
 Page({
     data: {
         picture: {},
@@ -15,7 +15,7 @@ Page({
         Paths: '',
         pen: 5,             //画笔粗细默认值
         color: '#000000',  //画笔颜色默认值
-        tempFilePath:'',   //图片临时位置
+        tempFilePath: '',   //图片临时位置
     },
     onLoad: function (params) {
         wx.showLoading({
@@ -26,9 +26,9 @@ Page({
         //获得手机屏幕信息
         try {
             var res = wx.getSystemInfoSync();
-            screenWidth=res.windowWidth;
-            screenHeight=res.windowHeight;
-            pixelRatio=res.pixelRatio;
+            screenWidth = res.windowWidth;
+            screenHeight = res.windowHeight;
+            pixelRatio = res.pixelRatio;
             console.log(pixelRatio);
             console.log(res.windowWidth);
             console.log(res.windowHeight);
@@ -42,17 +42,17 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
-                let image=res.data.images[0];
+                let image = res.data.images[0];
                 console.log(res.data.images[0]);
                 that.setData({
-                    picture:image
+                    picture: image
                 });
                 wx.downloadFile({
                     url: image.position.toString(),
-                    success: function(res) {
-                        let tempFilePath=res.tempFilePath;
+                    success: function (res) {
+                        let tempFilePath = res.tempFilePath;
                         that.setData({
-                            tempFilePath:tempFilePath
+                            tempFilePath: tempFilePath
                         });
                         //获取图片大小的信息
                         wx.getImageInfo({
@@ -60,19 +60,19 @@ Page({
                             success: function (res) {
                                 console.log(res.width);
                                 console.log(res.height);
-                                let imageHeight=0;
-                                if(res.height>1050/pixelRatio){
-                                    imageHeight=0;
-                                    ctx.drawImage(tempFilePath,0,imageHeight,screenWidth-10*2/pixelRatio,1050/pixelRatio);
+                                let imageHeight = 0;
+                                if (res.height > 1050 / pixelRatio) {
+                                    imageHeight = 0;
+                                    ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, 1050 / pixelRatio);
                                     ctx.draw();
-                                }else{
-                                    imageHeight=(1050/pixelRatio-res.height)/2;
-                                    ctx.drawImage(tempFilePath,0,imageHeight,screenWidth-10*2/pixelRatio,res.height);
+                                } else {
+                                    imageHeight = (1050 / pixelRatio - res.height) / 2;
+                                    ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, res.height);
                                     ctx.draw();
                                 }
-                                setTimeout(function(){
+                                setTimeout(function () {
                                     wx.hideLoading()
-                                },1000);
+                                }, 1000);
 
                             }
                         });
@@ -231,10 +231,10 @@ Page({
         return {
             title: '分享我的背诵页面',
             path: '/pages/studyDetail/studyDetail',
-            success: function(res) {
-               console.log(res)
+            success: function (res) {
+                console.log(res)
             },
-            fail: function(res) {
+            fail: function (res) {
                 // 转发失败
             }
         }

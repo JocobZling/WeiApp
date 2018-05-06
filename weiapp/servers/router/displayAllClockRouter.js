@@ -3,8 +3,8 @@ let router = express.Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 let Clock = require('../models/clock');
-let requireAuth =require('./requireAuth');
-router.use('/',function (req, res, next) {
+let requireAuth = require('./requireAuth');
+router.use('/', function (req, res, next) {
     console.log(req.openid);
     let exist = [];
     Clock.find((err, clock) => {

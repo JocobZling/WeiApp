@@ -6,12 +6,12 @@
     </view>
 
     <scroll-view class="body" scroll-y="true" scroll-top="{{scrollTop}}">
-      <view class="studyItem" wx:for="{{imagePosition}}">
+      <view  wx:key="key" class="studyItem" wx:for="{{imagePosition}}">
         <icon wx:if="{{item.check}}" type="success_circle" size="25" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
         <icon wx:else type="circle" size="25" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
         <view class="studyTimeDate">
-            <text>{{time}}</text>
-            <image src="{{item.image}}" mode="center"></image>
+            <text>{{item.date}}</text>
+            <image src="{{item.position}}" mode="center"></image>
         </view>
       </view>
       <view class="bodytail">

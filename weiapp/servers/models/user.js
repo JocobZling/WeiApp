@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema(
     {
         openid: String,
-        images: {type: Array},
+        images: [{
+            id:Number,
+            date:String,
+            position:String
+        }],
         clocks:[{
             id:String,
             name:String,
