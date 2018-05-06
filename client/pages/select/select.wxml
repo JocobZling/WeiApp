@@ -1,9 +1,6 @@
-<!--<view class="pageHeaderSelect">
-    <view>welcome</view>
-    <image src="../../images/line3.png"></image>
-</view>-->
+
 <view class="page-header">
-    <text class="page-header-text">聊天机器人</text>
+    <text class="page-header-text">首页</text>
 </view>
 
 <view class="step">
