@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/hello/hello",
     "pages/clockIndex/clockIndex",
     "pages/select/select",
@@ -17,6 +16,7 @@
     "pages/clockManage/clockManage",
     "pages/index/index",
     "pages/clockRecord/clockRecord"
+   
   ],
   "window": {
     "backgroundColor": "#008792",
