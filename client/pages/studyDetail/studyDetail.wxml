@@ -1,11 +1,14 @@
 <view>
-    <view class="canvas_area">
+    <view class="canvas_area" bindtap="previewImage">
         <canvas canvas-id="myCanvas" class="myCanvas"
                 disable-scroll="false"
                 bindtouchstart="touchStart"
                 bindtouchmove="touchMove"
                 bindtouchend="touchEnd">
         </canvas>
+    </view>
+    <view class="save">
+        <image src="../../images/save.png" bindtap="previewImage"></image>
     </view>
     <view class="canvas_tools">
         <view class="img-style box1" animation="{{animCollect}}" bindtap="penSelect" data-param="2"></view>

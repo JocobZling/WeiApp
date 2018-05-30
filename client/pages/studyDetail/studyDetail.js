@@ -16,6 +16,11 @@ Page({
         pen: 5,             //画笔粗细默认值
         color: '#000000',  //画笔颜色默认值
         tempFilePath: '',   //图片临时位置
+        imageList: [],
+        pictureX:0,
+        pictureY:0,
+        pictureWidth:0,
+        pictureHeight:0
     },
     onLoad: function (params) {
         wx.showLoading({
@@ -65,10 +70,22 @@ Page({
                                     imageHeight = 0;
                                     ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, 1050 / pixelRatio);
                                     ctx.draw();
+                                    that.setData({
+                                        pictureX:0,
+                                        pictureY:imageHeight,
+                                        pictureWidth:screenWidth - 10 * 2 / pixelRatio,
+                                        pictureHeight:1050 / pixelRatio
+                                    });
                                 } else {
                                     imageHeight = (1050 / pixelRatio - res.height) / 2;
                                     ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, res.height);
                                     ctx.draw();
+                                    that.setData({
+                                        pictureX:0,
+                                        pictureY:imageHeight,
+                                        pictureWidth:creenWidth - 10 * 2 / pixelRatio,
+                                        pictureHeight:res.height
+                                    });
                                 }
                                 setTimeout(function () {
                                     wx.hideLoading()
@@ -239,4 +256,25 @@ Page({
             }
         }
     },
+    previewImage: function (e) {
+        wx.canvasToTempFilePath({
+            x: this.data.pictureX,
+            y: this.data.pictureY,
+            width: this.data.pictureWidth,
+            height: this.data.pictureHeight,
+            destWidth: this.data.pictureWidth,
+            destHeight: this.data.pictureHeight,
+            canvasId: 'myCanvas',
+            success: function (res) {
+                console.log(res.tempFilePath);
+                wx.saveImageToPhotosAlbum({
+                    filePath: res.tempFilePath,
+                    success(res) {
+
+                    }
+                })
+            }
+        });
+
+    }
 })
