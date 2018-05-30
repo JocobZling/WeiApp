@@ -51,3 +51,9 @@
     width: 125rpx;
     background-image: url("https://jocobzling.mynatapp.cc/pen8.png");
 }
+.save image{
+    width: 125rpx;
+    height: 125rpx;
+    margin: 10rpx;
+    align-content: center;
+}
