@@ -12,7 +12,7 @@
     "pages/weather/weather",
     "pages/sign/sign",
     "pages/photoDetail/photoDetail",
-    "pages/clockDetail/clockDetail",
+    "pages/clockDetailnew/clockDetailnew",
     "pages/clockManage/clockManage",
     "pages/index/index",
     "pages/clockRecord/clockRecord"

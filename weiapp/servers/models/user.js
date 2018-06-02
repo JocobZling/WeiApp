@@ -10,8 +10,7 @@ const UserSchema = new Schema(
             position:String
         }],
         clocks:[{
-            id:String,
-            name:String,
+            id:Number,
             joinDate:String,
             signInDate:[{
                 date:String,

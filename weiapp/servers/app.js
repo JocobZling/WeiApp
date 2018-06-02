@@ -50,7 +50,6 @@ app.use('/photo', photoRouter);
 let displayStudyItemsRouter = require('./router/displayStudyItemsRouter');
 app.use('/study', displayStudyItemsRouter);
 
-
 //保存用户信息
 let getUserSession = require('./router/getUserSession');
 app.use('/wx', getUserSession);
@@ -82,8 +81,6 @@ app.use('/joinClock', joinClockRouter);
 //打卡
 let checkClockRouter = require('./router/checkClockRouter');
 app.use('/checkClock', checkClockRouter);
-
-
 
 // 监听端口，等待连接
 const port = 8080;

@@ -6,7 +6,7 @@
         <view>{{item.detail}}</view>
     </view>
     <view>
-        <navigator url="../clockDetail/clockDetail?id={{item.id}}&exist={{item.exist}}">
+        <navigator url="../clockDetailnew/clockDetailnew?id={{item.id}}&exist={{item.exist}}">
             <button wx:if="{{item.exist==2}}">立即参与</button>
             <button wx:if="{{item.exist==1}}">已参与</button>
         </navigator>
