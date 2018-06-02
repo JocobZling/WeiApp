@@ -8,7 +8,7 @@ let bodyParser = require("body-parser");
 let requireAuth = require('./requireAuth');
 router.use(bodyParser.json());
 
-router.post('/upload', requireAuth, function (req, res, next) {
+router.post('/upload',requireAuth, function (req, res, next) {
     let openid = req.openid;
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
