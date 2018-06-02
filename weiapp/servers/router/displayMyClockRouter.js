@@ -5,7 +5,7 @@ router.use(bodyParser.json());
 let User = require('../models/user');
 let Clock = require('../models/clock');
 let requireAuth = require('./requireAuth');
-router.use('/', function (req, res) {
+router.use('/',requireAuth,function (req, res) {
     let clockDetail = [];
     User.findOne({openid: req.openid}, (err, user) => {
         if (err) {

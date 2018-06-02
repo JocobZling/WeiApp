@@ -1,91 +1,90 @@
 <!--pages/clockDetailnew/clockDetailnew.wxml-->
 <view class="main">
-  <view class="head" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525579342337&di=0a2a319ba33b20f07144eb36c1ccabfa&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F810a19d8bc3eb135acec879fac1ea8d3fd1f44ee.jpg');background-size: cover">
-    <view style="height: 150rpx"></view>
-    <view style="margin-left:35%"></view>
-    <view class="title">
-      <text class="titleText" style="font-size:20px;color:#ffffff">阅读打卡</text>
-    </view>
-    <view class="schedule">
-      <view class="scheduleText">
-        <view>
-          <text style="font-size:12px;color:#ffffff">第1/10天</text>
+    <view class="head"
+          style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525579342337&di=0a2a319ba33b20f07144eb36c1ccabfa&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F810a19d8bc3eb135acec879fac1ea8d3fd1f44ee.jpg');background-size: cover">
+        <view style="height: 150rpx"></view>
+        <view style="margin-left:35%"></view>
+        <view class="title">
+            <text class="titleText" style="font-size:20px;color:#ffffff">{{item.name}}</text>
         </view>
-        <view>
-          <text style="font-size:12px;color:#ffffff">共20人签到</text>
+        <view class="schedule">
+            <view class="scheduleText">
+                <view>
+                    <text style="font-size:12px;color:#ffffff">第1/10天</text>
+                </view>
+                <view>
+                    <text style="font-size:12px;color:#ffffff">共20人签到</text>
+                </view>
+            </view>
+            <view class="scheduleProgress">
+                <progress percent="20" activeColor="#008792"/>
+            </view>
         </view>
-      </view>
-      <view class="scheduleProgress">
-        <progress percent="20"  activeColor="#008792"/>
-      </view>
+        <view style="height: 10rpx"></view>
     </view>
-    <view style="height: 10rpx"></view>
-  </view>
 
 
-  <view class="initiatorName">
-    <image class="initiatorImg" src="../../images/me3.png" mode="aspectFit"></image>
-    <text class="initiator" style="font-size:15px">yuqing</text>
-  </view>  
-  <view class="page-header"></view>
-
-
-  <view class="rule">
-    <view class="rules">
-      <image class="rulesImg" src="../../images/list.png" mode="aspectFit"></image>
-      <text style="font-size:15px">签到规则：</text>
-    </view>
-    <view class="info">
-      <view class="text">
-        <text style="font-size:13px;color:#6c6c6c">*签到日期：2018.3.10 至 2018.4.13\n</text>
-        <text style="font-size:13px;color:#6c6c6c">*每日签到时间：00：00至23：59\n</text>
-        <text style='{{hideText?"-webkit-line-clamp:1":""}}'>*签到规则：\n因为评论内容要嵌入到其它内容里面，也就是用户在某个内容上面提交的评论要属于这个内容，就是评论内容与被评论的内容之间要关联在一起。比如可以在接口里面用 post 属性表示评论所属的内容。评论之间还可以进行回复，一个人留了一条评论，另一个人可以回复这条评论，就是评论与回复之间也应该有个关联，比如在接口里用 parent 表示这条评论回复的是哪条评论。</text>
-      </view>
-      <view class='controlText {{hideClass}}' bindtap="toggleText">
-        <text></text>
-      </view>
-    </view>
-  </view>
-  <view class="page-header"></view>
-
-
-  <view class="functionBar">
-    <view class="notice">
-      <image class="function" src="../../images/notification.png" mode="aspectFit"></image>
-      <text style="font-size:13px">通知</text>
-    </view>
-    <view class="rankingList">
-      <image class="function" src="../../images/rank.png" mode="aspectFit"></image>
-      <text style="font-size:13px">排行榜</text>
-    </view>
-    <view class="record">
-      <image class="function" src="../../images/plan.png" mode="aspectFit"></image>
-      <text style="font-size:13px">我的记录</text>
-    </view>
-  </view>
-  <view class="participate">
-    <button class="participateBtn" bindtap="jumpToclockSignInfor">参与签到</button>
-  </view>
-
-  <view>
-    <view class="leavingMessage">
-      <view class="msgImg">
-        <image src="{{thumb}}" class="thumb"></image>
-      </view>
-      <view class="msgText">
-        <view class="text">
-          <text class="nickname" style="font-size:27rpx">{{nickname}}</text>
-          <text class="date" style="font-size:20rpx;color:#6c6c6c">2018-5-6 17:41:43</text>
-          <text class="msg" style="font-size:25rpx">今天天气真好啦啦啦啦啦啦阿拉啦啦啦啦啦啦啦啦</text>
-        </view>
-        <view class="icon">
-          <image class="msgicon" src="../../images/share.png" mode="aspectFit"></image>
-          <text style="font-size:20rpx">分享</text>
-        </view>
-      </view>
+    <view class="initiatorName">
+        <image class="initiatorImg" src="../../images/me3.png" mode="aspectFit"></image>
+        <text class="initiator" style="font-size:15px">{{item.name}}</text>
     </view>
     <view class="page-header"></view>
-  </view>
+
+
+    <view class="rule">
+        <view class="rules">
+            <image class="rulesImg" src="../../images/list.png" mode="aspectFit"></image>
+            <text style="font-size:15px">签到规则：</text>
+        </view>
+        <view class="info">
+            <view class="text">
+                <text style="font-size:13px;color:#6c6c6c">*签到日期：{{item.beginDate}}至{{item.endDate}}\n</text>
+                <text style="font-size:13px;color:#6c6c6c">*每日签到时间：00：00至23：59\n</text>
+                <text style='{{hideText?"-webkit-line-clamp:1":""}}'>*打卡内容：\n {{info}}
+                </text>
+            </view>
+            <view class='controlText {{hideClass}}' bindtap="toggleText">
+                <text></text>
+            </view>
+        </view>
+    </view>
+    <view class="page-header"></view>
+
+
+    <view class="functionBar">
+        <view class="notice">
+            <image class="function" src="../../images/notification.png" mode="aspectFit"></image>
+            <text style="font-size:13px">通知</text>
+        </view>
+        <view class="rankingList">
+            <image class="function" src="../../images/rank.png" mode="aspectFit"></image>
+            <text style="font-size:13px">排行榜</text>
+        </view>
+        <navigator url="../clockRecord/clockRecord">
+            <view class="record">
+                <image class="function" src="../../images/plan.png" mode="aspectFit"></image>
+                <text style="font-size:13px">我的记录</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="participate">
+        <button class="participateBtn" bindtap="jumpToclockSignInfor">参与签到</button>
+    </view>
+    <view>
+        <view class="leavingMessage">
+            <view class="msgImg">
+                <image src="{{thumb}}" class="thumb"></image>
+            </view>
+            <view class="msgText">
+                <view class="text">
+                    <text class="nickname" style="font-size:27rpx">{{nickname}}</text>
+                    <text class="date" style="font-size:20rpx;color:#6c6c6c">2018-5-6 17:41:43</text>
+                    <text class="msg" style="font-size:25rpx">今天天气真好啦啦啦啦啦啦阿拉啦啦啦啦啦啦啦啦</text>
+                </view>
+            </view>
+        </view>
+        <view class="page-header"></view>
+    </view>
 
 </view>
 

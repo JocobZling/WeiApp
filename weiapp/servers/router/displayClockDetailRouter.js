@@ -3,6 +3,7 @@ let router = express.Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 let requireAuth =require('./requireAuth');
+let Clock = require('../models/clock');
 router.use('/',requireAuth,function (req, res, next) {
     console.log(req.query.id);
     Clock.findOne({id: req.query.id}, (err, clock) => {
