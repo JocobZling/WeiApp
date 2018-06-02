@@ -1,7 +1,7 @@
 <view class="page-header">
     <text class="page-header-text">聊天机器人</text>
 </view>
-<scroll-view scroll-y="true" style="height:480px" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" style="height:{{viewHeight}}px" scroll-top="{{scrollTop}}">
     <view class="reply">
         <image class="photo" src="/images/robot.jpg"></image>
         <text class="text">小可爱你好，快点跟我开心的聊天吧嘻嘻！</text>
@@ -58,9 +58,14 @@
     </block>
 </scroll-view>
 
+
 <form bindsubmit="send">
     <view class="sendMsg">
-        <textarea name="msg" class="inputMsg"/>
+      <view class="sendText">
+        <input name="msg" class="inputMsg" value="{{inputValue}}"/>
+      </view>
+      <view class="sendButton"> 
         <button form-type="submit" class="sendBtn">send</button>
+      </view>
     </view>
 </form>

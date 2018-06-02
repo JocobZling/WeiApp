@@ -61,11 +61,10 @@
         </view>
     </view>
     <view style="height: 70px"></view>
-    <view class="weui-footer">
-        <view class="weui-footer__links">
-            <navigator url="https://github.com/JocobZling" class="weui-footer__link">HouseKeeper</navigator>
-        </view>
-        <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
-    </view>
 </scroll-view>
-
+<view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__links">
+        <navigator url="https://github.com/JocobZling" class="weui-footer__link">HouseKeeper</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+</view>

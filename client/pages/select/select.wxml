@@ -1,50 +1,50 @@
+  <view class="page-header">
+      <text class="page-header-text">首页</text>
+  </view>
 
-<view class="page-header">
-    <text class="page-header-text">首页</text>
-</view>
+  <view class="step" style="height:{{viewHeight}}px">
+      <view class="step1">
+          <navigator url="../study/study">
+              <view class="study">
+                  <view>涂涂画画背书</view>
+                  <image src="../../images/study.png"></image>
+              </view>
+          </navigator>
+          <navigator url="../weather/weather">
+              <view class="selectWeather">
+                  <image src="../../images/weather2.png"></image>
+                  <view>查天</view>
+                  <view>询气</view>
+              </view>
+          </navigator>
+          <navigator url="../sign/sign">
+              <view class="selectSign">
+                  <view>今运</view>
+                  <view>日势</view>
+                  <image src="../../images/sign2.png"></image>
+              </view>
+          </navigator>
+      </view>
+      <view class="step2">
+          <navigator url="../chat/chat">
+              <view class="chat">
+                  <image src="../../images/robot2.png"></image>
+                  <view>解闷机器人</view>
+              </view>
+          </navigator>
+          <navigator url="../clockIndex/clockIndex">
+              <view class="clock">
+                  <image src="../../images/clock.png"></image>
+                  <view>今日打卡了吗？</view>
+              </view>
+          </navigator>
+          <navigator url="../photo/photo">
+              <view class="super">
+                  <image src="../../images/super.png"></image>
+                  <view>打惊</view>
+                  <view>开喜</view>
+              </view>
+          </navigator>
+      </view>
+  </view>
 
-<view class="step">
-    <view class="step1">
-        <navigator url="../study/study">
-            <view class="study">
-                <view>涂涂画画背书</view>
-                <image src="../../images/study.png"></image>
-            </view>
-        </navigator>
-        <navigator url="../weather/weather">
-            <view class="selectWeather">
-                <image src="../../images/weather2.png"></image>
-                <view>查天</view>
-                <view>询气</view>
-            </view>
-        </navigator>
-        <navigator url="../sign/sign">
-            <view class="selectSign">
-                <view>今运</view>
-                <view>日势</view>
-                <image src="../../images/sign2.png"></image>
-            </view>
-        </navigator>
-    </view>
-    <view class="step2">
-        <navigator url="../chat/chat">
-            <view class="chat">
-                <image src="../../images/robot2.png"></image>
-                <view>解闷机器人</view>
-            </view>
-        </navigator>
-        <navigator url="../clockIndex/clockIndex">
-            <view class="clock">
-                <image src="../../images/clock.png"></image>
-                <view>今日打卡了吗？</view>
-            </view>
-        </navigator>
-        <navigator url="../photo/photo">
-            <view class="super">
-                <image src="../../images/super.png"></image>
-                <view>打惊</view>
-                <view>开喜</view>
-            </view>
-        </navigator>
-    </view>
-</view>
