@@ -4,7 +4,7 @@ let config = require('../config');
 //JWT认证
 function requireAuth(req, res, next) {
     let token = req.headers.authorization;
-    console.log(req.headers);
+    //console.log(req.headers);
     if (token) {
         jwt.verify(token, config.jwtSecret, (err, decoded) => {
             if (err) {
