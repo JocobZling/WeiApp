@@ -7,7 +7,6 @@
 }
 .myCanvas{
     width: 100%;
-    height: 1050rpx;
     background-color: #c0c0c0;
 }
 .picture{
@@ -22,38 +21,40 @@
     right: 3%;
     z-index: 100;
 }
-.img-style {
-    height: 125rpx;
-    width: 125rpx;
-    position: absolute;
-    bottom: 10rpx;
-    right: 3%;
-    opacity: 0;
+.tools{
+  display: flex;
+  height: 140rpx;
+  justify-content: space-around;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  align-items: center;
+  bottom:0; 
 }
 .box1{
     height: 125rpx;
     width: 125rpx;
-    background-image: url("https://jocobzling.mynatapp.cc/pen5.png");
 }
 .box2{
     height: 125rpx;
     width: 125rpx;
-    background-image: url("https://jocobzling.mynatapp.cc/pen6.png");
 }
 .box3{
     height: 125rpx;
     width: 125rpx;
-    background-image: url("https://jocobzling.mynatapp.cc/pen7.png");
 }
-
-.box4{
+.box1 image{
     height: 125rpx;
     width: 125rpx;
-    background-image: url("https://jocobzling.mynatapp.cc/pen8.png");
+}
+.box2 image{
+    height: 125rpx;
+    width: 125rpx;
+}
+.box3 image{
+    height: 125rpx;
+    width: 125rpx;
 }
 .save image{
     width: 125rpx;
     height: 125rpx;
-    margin: 10rpx;
-    align-content: center;
 }

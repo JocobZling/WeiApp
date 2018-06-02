@@ -1,8 +1,7 @@
 Page{
     background-image: url("https://jocobzling.mynatapp.cc/back.jpg");
-    background-size:750rpx 1206rpx;
+    background-size:100% 100%;
     background-repeat: no-repeat;
-    width: 100%;
 }
 .button{
     height: 395rpx;

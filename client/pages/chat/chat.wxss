@@ -7,6 +7,12 @@ Page{
     flex-direction: row;
     margin: 10px;
 }
+
+.scroll{
+  display: flex;
+  width: 100%;
+}
+
 .send{
     justify-content: flex-end;
 }
@@ -25,15 +31,18 @@ Page{
 }
 .sendMsg{
     display: flex;
-    position:fixed;
-    bottom:0;
-    margin: 10px;
+    height: 90rpx;
+    width:100%; 
+    position:fixed; 
+    bottom:0; 
+    margin: 10rpx;
 }
 .inputMsg{
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 10px;
-    border:2rpx solid #665544;
+  justify-content: center;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border:2rpx solid #665544;
 }
 .sendBtn{
     background-color: black;
@@ -43,4 +52,25 @@ Page{
 }
 a{
     display: inline;
+}
+.sendButton{
+  width: 27%;
+}
+.sendText{
+  width: 70%;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+.body{
+  width: 100%;
+  background-color: #665544;
+}
+.tail{
+  display: flex;
+  width:100%; 
+  position:fixed; 
+  bottom:0; 
+  height: 120rpx;
 }

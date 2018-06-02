@@ -14,18 +14,22 @@ Page({
         animInput: {},       //item位移,透明度
         Paths: '',
         pen: 5,             //画笔粗细默认值
-        color: '#000000',  //画笔颜色默认值
+        color: '#000000',   //画笔颜色默认值
         tempFilePath: '',   //图片临时位置
         imageList: [],
         pictureX:0,
         pictureY:0,
         pictureWidth:0,
-        pictureHeight:0
+        pictureHeight:0,
+        viewHeight: 0
     },
     onLoad: function (params) {
         wx.showLoading({
             title: '加载中',
         });
+        this.setData({
+          viewHeight: wx.getSystemInfoSync().windowHeight - 80
+        })  
         let that = this;
         console.log(params.id);
         //获得手机屏幕信息
@@ -83,7 +87,7 @@ Page({
                                     that.setData({
                                         pictureX:0,
                                         pictureY:imageHeight,
-                                        pictureWidth:creenWidth - 10 * 2 / pixelRatio,
+                                        pictureWidth:screenWidth - 10 * 2 / pixelRatio,
                                         pictureHeight:res.height
                                     });
                                 }
@@ -101,22 +105,6 @@ Page({
         })
 
     },
-    //点击弹出
-    plus: function () {
-        if (this.data.isPopping) {
-            //缩回动画
-            this.popp();
-            this.setData({
-                isPopping: false
-            })
-        } else if (!this.data.isPopping) {
-            //弹出动画
-            this.takeback();
-            this.setData({
-                isPopping: true
-            })
-        }
-    },
     penSelect: function (e) {
         console.log(e.currentTarget);
         this.setData({
@@ -126,66 +114,6 @@ Page({
     },
     remove: function () {
         this.isClear = true;
-    },
-    //弹出动画
-    popp: function () {
-        //plus顺时针旋转
-        var animationPlus = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        })
-        var animationcollect = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        })
-        var animationTranspond = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        })
-        var animationInput = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        })
-        animationPlus.rotateZ(180).step();
-        animationcollect.translate(-85, 0).rotateZ(180).opacity(1).step();
-        animationTranspond.translate(-170, 0).rotateZ(180).opacity(1).step();
-        animationInput.translate(-255, 0).rotateZ(180).opacity(1).step();
-        this.setData({
-            animPlus: animationPlus.export(),
-            animCollect: animationcollect.export(),
-            animTranspond: animationTranspond.export(),
-            animInput: animationInput.export(),
-        })
-    },
-    //收回动画
-    takeback: function () {
-        //plus逆时针旋转
-        var animationPlus = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        });
-        var animationcollect = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        });
-        var animationTranspond = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        });
-        var animationInput = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease-out'
-        });
-        animationPlus.rotateZ(0).step();
-        animationcollect.translate(0, 0).rotateZ(0).opacity(0).step();
-        animationTranspond.translate(0, 0).rotateZ(0).opacity(0).step();
-        animationInput.translate(0, 0).rotateZ(0).opacity(0).step();
-        this.setData({
-            animPlus: animationPlus.export(),
-            animCollect: animationcollect.export(),
-            animTranspond: animationTranspond.export(),
-            animInput: animationInput.export(),
-        })
     },
     startX: 0, //保存X坐标轴变量
     startY: 0, //保存X坐标轴变量

@@ -1,21 +1,29 @@
 <view>
-    <view class="canvas_area" bindtap="previewImage">
-        <canvas canvas-id="myCanvas" class="myCanvas"
+  <view class="canvas_area">
+    <canvas canvas-id="myCanvas" class="myCanvas"
+                style="height:{{viewHeight}}px"
                 disable-scroll="false"
                 bindtouchstart="touchStart"
                 bindtouchmove="touchMove"
                 bindtouchend="touchEnd">
-        </canvas>
-    </view>
-    <view class="save">
+    </canvas>
+  </view>
+  <view class="canvas_tools">
+    <view class="tools">
+      <view class="save">
         <image src="../../images/save.png" bindtap="previewImage"></image>
+      </view>
+      <view class="box1">
+        <image src="../../images/pen1.png" bindtap="penSelect" data-param="2"></image>
+      </view>
+      <view class="box2">
+        <image src="../../images/pen2.png" bindtap="penSelect" data-param="5" ></image>
+      </view>
+      <view class="box3">
+        <image src="../../images/clear.png" bindtap="remove"></image>
+      </view>
     </view>
-    <view class="canvas_tools">
-        <view class="img-style box1" animation="{{animCollect}}" bindtap="penSelect" data-param="2"></view>
-        <view class="img-style box2" animation="{{animTranspond}}" bindtap="penSelect" data-param="5"></view>
-        <view class="img-style box3" animation="{{animInput}}" bindtap="remove"></view>
-        <view class="img-plus-style box4" animation="{{animPlus}}" bindtap="plus"></view>
-    </view>
+  </view>
 </view>
 
 
