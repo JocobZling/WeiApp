@@ -14,13 +14,23 @@
         <image src="../../images/save.png" bindtap="previewImage"></image>
       </view>
       <view class="box1">
-        <image src="../../images/pen1.png" bindtap="penSelect" data-param="2"></image>
+        <view class="color1">
+          <image src="../../images/black.png" animation="{{animationBlack1}}" class="image-style" bindtap="black" data-color="black" data-param="2"></image>
+          <image src="../../images/red.png" animation="{{animationRed1}}" class="image-style" bindtap="red" data-color="red" data-param="2"></image>
+          <image src="../../images/yellow.png" animation="{{animationYellow1}}" class="image-style" bindtap="yellow" data-color="yellow" data-param="2"></image>
+        </view>
+        <image class="pen1" src="../../images/pen1.png" animation="{{animationPlus1}}" bindtap="penSelect1" data-param="2"></image>
       </view>
       <view class="box2">
-        <image src="../../images/pen2.png" bindtap="penSelect" data-param="5" ></image>
+        <view class="color2">
+          <image src="../../images/black.png" animation="{{animationBlack2}}" class="image-style" bindtap="black" data-color="black" data-param="5"></image>
+          <image src="../../images/red.png" animation="{{animationRed2}}" class="image-style" bindtap="red" data-color="red" data-param="5"></image>
+          <image src="../../images/yellow.png" animation="{{animationYellow2}}" class="image-style" bindtap="yellow" data-color="yellow" data-param="5"></image>
+        </view>
+        <image class="pen2" src="../../images/pen2.png" animation="{{animationPlus2}}" bindtap="penSelect2" data-param="5" ></image>
       </view>
       <view class="box3">
-        <image src="../../images/clear.png" bindtap="remove"></image>
+        <image class="clear" src="../../images/clear.png" bindtap="remove"></image>
       </view>
     </view>
   </view>
