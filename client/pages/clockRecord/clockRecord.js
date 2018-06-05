@@ -1,11 +1,15 @@
 var config = require('../../config.js');
 const token = wx.getStorageSync('token');
+var date = util.formatTime(new Date());
 import initCalendar, { getSelectedDay, jumpToToday } from '../../template/calendar/index';
 Page({
     data: {
         thumb:'',
         nickname:'',
-        userSingleRecord:''
+        userSingleRecord:'',
+        userAllRecord:'',
+        flag:false,
+        id:0
     },
     onLoad:function (options) {
         let that=this;
@@ -25,12 +29,25 @@ Page({
             },
             success: function (res) {
                 console.log(res.data.user);
+                let user = res.data.user;
+                that.setDate({
+                    userAllRecord:res.data.user[0],
+                    id:options.id
+                });
+                for(let item of user[0]){
+                    if(item.date===date){
+                        that.setDate({
+                            userSingleRecord:item.info,
+                            flag:true
+                        })
+                    }
+                }
             }
         })
     },
     onShow: function() {
         initCalendar({
-            // multi: true, // 是否开启多选,
+             multi: true, // 是否开启多选,
             // disablePastDay: true, // 是否禁选过去日期
             /**
              * 选择日期后执行的事件
@@ -55,5 +72,11 @@ Page({
     },
     jump() {
         jumpToToday();
+    },
+    jumpToclockSignInfor:function(){
+        let that=this;
+        wx.navigateTo({
+            url: `../clockSignInfor/clockSignInfor?id=${that.data.id}`,
+        })
     }
 });

@@ -24,20 +24,21 @@
 <view>
     <view class="calendar-wrap">
         <template is="calendar" data="{{...calendar}}" />
-        <button>当天已签到</button>
+        <button wx:if="{{flag==true}}">当天已签到</button>
+        <button wx:if="{{flag==false}}" bindtap="jumpToclockSignInfor">去签到</button>
     </view>
 
 </view>
 <view class="MyRecord">
     <view style="border-width:3rpx;border-color: #c0c0c0; border-style:none none solid none">
-        <text>-L的签到记录</text>
+        <text>{{nickname}}的签到记录</text>
     </view>
     <view class="detail">
         <image src="{{thumb}}" class="thumb"></image>
         <view class="text">
-            <view class="detailTitle">-L</view>
+            <view class="detailTitle">{{nickname}}</view>
             <view class="owner">
-                今天打卡很开心！
+                {{userSingleRecord}}
             </view>
         </view>
     </view>
