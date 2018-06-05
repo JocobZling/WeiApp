@@ -66,6 +66,10 @@ app.use('/deleteStudyItems', getUser);
 let displayMyClockRouter = require('./router/displayMyClockRouter');
 app.use('/myClock', displayMyClockRouter);
 
+//展示我每天的打卡记录
+let displayMyClockRecordRouter = require('./router/displayMyClockRecordRouter');
+app.use('/myClockRecord', displayMyClockRecordRouter);
+
 //展示所有打卡
 let displayAllClockRouter = require('./router/displayAllClockRouter');
 app.use('/clockList', displayAllClockRouter);

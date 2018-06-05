@@ -9,6 +9,8 @@ const ClockSchema = new Schema(
         owner:{type:String},
         image: {type: String},
         detail:{type:String},
+        beginDate:{type:String},
+        endDate:{type:String},
         clockDetail:[{
            date:String,
            info:String

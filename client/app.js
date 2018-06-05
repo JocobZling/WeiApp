@@ -4,7 +4,6 @@ var config = require('./config');
 
 App({
     onLaunch: function () {
-        //调用API从本地缓存中获取数据
         var logs = wx.getStorageSync('logs') || [];
         logs.unshift(Date.now());
         wx.setStorageSync('logs', logs);
@@ -23,7 +22,7 @@ App({
                         console.log('获取用户登录凭证：' + code);
                         wx.request({
                             url: `${config.service.host}/wx/onlogin`,
-                            data: { code: code },
+                            data: {code: code},
                             success:function(res){
                               console.log(res.data.token);
                               wx.setStorageSync('token', res.data.token);

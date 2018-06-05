@@ -4,9 +4,10 @@ import initCalendar, { getSelectedDay, jumpToToday } from '../../template/calend
 Page({
     data: {
         thumb:'',
-        nickname:''
+        nickname:'',
+        userSingleRecord:''
     },
-    onLoad:function () {
+    onLoad:function (options) {
         let that=this;
         wx.getUserInfo({
             success: function(res){
@@ -14,6 +15,16 @@ Page({
                     thumb: res.userInfo.avatarUrl,
                     nickname: res.userInfo.nickName
                 })
+            }
+        });
+        wx.request({
+            url: `${config.service.host}/myClockRecord?id=${options.id}`,
+            header: {
+                'Authorization': token,
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res.data.user);
             }
         })
     },

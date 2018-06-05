@@ -15,8 +15,8 @@
     "pages/clockDetailnew/clockDetailnew",
     "pages/clockManage/clockManage",
     "pages/index/index",
-    "pages/clockRecord/clockRecord"
-   
+    "pages/clockRecord/clockRecord",
+    "pages/clockSignInfor/clockSignInfor"
   ],
   "window": {
     "backgroundColor": "#008792",

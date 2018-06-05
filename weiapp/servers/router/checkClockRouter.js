@@ -3,35 +3,44 @@ let router = express.Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 let Clock = require('../models/clock');
-let requireAuth =require('./requireAuth');
+let User = require('../models/user');
+let requireAuth = require('./requireAuth');
 router.use('/', requireAuth, function (req, res) {
-    console.log(req.query.id);
-    console.log(req.openid);
-    console.log(req.query.date);
-    let clocks = [];
-    Clock.findOne({id: req.query.id}, function (err, clock) {
-        if (err) return res.json({
-            msg: "出错了！"
-        });
-        let dateOld = clock.user[0].date;
-        console.log(dateOld);
-        Clock.update({user: {openid: req.openid, date: clock.user[0].date}}, {
-                $set: {
-                    user: {
-                        openid: req.openid,
-                        date: clock.user[0].date+","+[req.query.date],
-                    }
+    console.log(req.query.info);
+    let date = getNowFormatDate();//当前日期
+    User.update({openid: req.openid, clocks: {$elemMatch: {id: req.query.id}}},
+        {
+            $addToSet: {
+                "clocks.$.signInDate": {
+                    date: date,
+                    info: req.query.info
                 }
-            },
-            (err, msg) => {
-                if (err) return res.json({
-                    msg: "出错了！"
-                });
-                console.log(msg);
-                return res.json({
-                    clock: clock
-                })
-            });
-    });
+            }
+        },
+        (err, user) => {
+            if (err) {
+                return console.log(err);
+            }
+            return res.json({
+                flag: "更新成功！"
+            })
+        })
 });
+
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate;
+    return currentdate;
+}
+
 module.exports = router;
