@@ -14,7 +14,7 @@ Page{
 }
 
 .send{
-    justify-content: flex-end;
+    justify-content:flex-end
 }
 .photo{
     width:50px;
@@ -31,7 +31,7 @@ Page{
 }
 .sendMsg{
     display: flex;
-    height: 90rpx;
+    height: 100rpx;
     width:100%; 
     position:fixed; 
     bottom:0; 
@@ -44,20 +44,35 @@ Page{
   margin-right: 10px;
   border:2rpx solid #665544;
 }
+.speak{
+  height: 85rpx;
+}
+.speaker{
+    height: 180rpx; 
+    width: 180rpx; 
+    border-radius: 20rpx; 
+    margin: 0 auto; 
+}
+.speakerimg{
+  position: relative; 
+  bottom: 300rpx;
+  height: 180rpx; 
+  width: 180rpx; 
+}
 .sendBtn{
     background-color: black;
     color: #FFFFFF;
     height:40px;
     font-size: 12px;
+    width:180rpx;
 }
 a{
     display: inline;
 }
-.sendButton{
-  width: 27%;
-}
-.sendText{
-  width: 70%;
+.text-video-img{
+  height: 70rpx;
+  width: 70rpx;
+  margin: 10rpx;
 }
 .main{
   display: flex;

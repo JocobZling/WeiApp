@@ -1,6 +1,7 @@
 <view class="page-header">
     <text class="page-header-text">聊天机器人</text>
 </view>
+
 <scroll-view scroll-y="true" style="height:{{viewHeight}}px" scroll-top="{{scrollTop}}">
     <view class="reply">
         <image class="photo" src="/images/robot.jpg"></image>
@@ -58,14 +59,19 @@
     </block>
 </scroll-view>
 
-
 <form bindsubmit="send">
     <view class="sendMsg">
-      <view class="sendText">
-        <input name="msg" class="inputMsg" value="{{inputValue}}"/>
-      </view>
-      <view class="sendButton"> 
-        <button form-type="submit" class="sendBtn">send</button>
-      </view>
+      <image class="text-video-img" src="../../images/speak.png" hidden="{{keyboard}}" bindtap="switchInputType"></image>
+      <image class="text-video-img" src="../../images/keyboard.png" hidden="{{!keyboard}}" bindtap="switchInputType"></image>
+      <input name="msg" hidden="{{keyboard}}" focus="{{!keyboard}}" class="inputMsg" value="{{inputValue}}"/>
+      <button class="speak" style="width:{{viewWidth}}rpx" hidden="{{!keyboard}}" bindtouchstart="touchdown" bindtouchend="touchup">按住 说话</button>
+      <button form-type="submit" hidden="{{keyboard}}" class="sendBtn">send</button>
     </view>
 </form>
+<view  class="speaker" wx:if="{{isSpeaking}}">
+    <image wx:if="{{j==1}}" class="speakerimg" src="../../images/speaker1.png"></image>
+    <image wx:if="{{j==2}}" class="speakerimg" src="../../images/speaker2.png"></image>
+    <image wx:if="{{j==3}}" class="speakerimg" src="../../images/speaker3.png"></image>
+    <image wx:if="{{j==4}}" class="speakerimg" src="../../images/speaker4.png"></image>
+    <image wx:if="{{j==5}}" class="speakerimg" src="../../images/speaker5.png"></image>
+</view>

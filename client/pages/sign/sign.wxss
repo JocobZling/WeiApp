@@ -37,6 +37,9 @@ text{
     align-items:flex-start;
     margin-left: 20px;
 }
+.weatherResult text{
+  font-size: 20px;
+}
 .result{
   display: flex;
   flex-direction: row;

@@ -1,18 +1,49 @@
+
 var config = require('../../config.js');
 const token = wx.getStorageSync('token');
+
+
 Page({
   data: {
     msgList: [],
     scrollTop: 0,
     inputValue:"",
-    viewHeight:0
+    viewHeight:0,
+    viewWidth:0,
+    keyboard:false,
+    j:1,               //录音帧
+    isSpeaking: false, //是否正在说话
+    outputTxt: "",     //输出识别结果
   },
-  
+  switchInputType: function () {
+    this.setData({
+      keyboard: !(this.data.keyboard),
+    })
+  },
   onLoad: function (options) {
     this.setData({
-      viewHeight: wx.getSystemInfoSync().windowHeight-105
+      viewHeight: wx.getSystemInfoSync().windowHeight - 115,
+      viewWidth: wx.getSystemInfoSync().windowHeight - 100,
     })  
+
   },
+
+  touchdown: function () {
+    var _this = this;
+    speaking.call(this);
+    this.setData({
+      isSpeaking: true
+    })
+  },
+  touchup: function () {
+    this.setData({
+      isSpeaking: false,
+    })
+  },
+
+
+
+
   send: function (e) {
     console.log(e.detail.value.msg);
     var msg = { "type": 0, "msg": e.detail.value.msg };
@@ -88,3 +119,17 @@ Page({
 
   }
 })
+
+//麦克风帧动画 
+function speaking() {
+  var _this = this;
+  //话筒帧动画 
+  var i = 1;
+  this.timer = setInterval(function () {
+    i++;
+    i = i % 5;
+    _this.setData({
+      j: i
+    })
+  }, 300);
+}
