@@ -6,7 +6,6 @@ let requireAuth = require('./requireAuth');
 let Clock = require('../models/clock');
 let User = require('../models/user');
 router.use('/', requireAuth, function (req, res, next) {
-    console.log(req.query.id);
     let flag = false;//判断今天是否签到过了
     let date = getNowFormatDate();//当前日期
     let clocksDetail = [];
@@ -39,7 +38,7 @@ router.use('/', requireAuth, function (req, res, next) {
             }
             for (let item of user.clocks) {
                 if (item.id.toString() === req.query.id.toString()) {
-                    console.log("come in");
+                    userSignIn=item.signInDate;
                     for (let signDate of item.signInDate) {
                         if (signDate.date === date) {
                             flag = true;
@@ -49,7 +48,8 @@ router.use('/', requireAuth, function (req, res, next) {
             }
             return res.json({
                 clock: clocksDetail,
-                flag: flag
+                flag: flag,
+                user:userSignIn
             })
         });
     });

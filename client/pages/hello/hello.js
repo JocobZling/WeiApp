@@ -43,6 +43,9 @@ Page({
                             console.log(res.data.token);
                             wx.setStorageSync('token', res.data.token);
                         }
+                    });
+                    wx.switchTab({
+                        url: '../select/select'
                     })
                 } else {
                     console.log('获取用户登录态失败：' + res.errMsg);

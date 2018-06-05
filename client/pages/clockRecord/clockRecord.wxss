@@ -15,7 +15,7 @@ page {
     line-height: 100rpx;
     padding: 30rpx 30rpx 30rpx 150rpx;
     box-sizing: border-box;
-    background: #A60000;
+    background: #008792;
     font-size: 28rpx;
     color: #fff;
     display: flex;
@@ -68,7 +68,7 @@ page {
 .MyRecord{
     margin:20rpx;
     padding: 10rpx;
-    background-color: red;
+    background-color: white;
 }
 .MyRecord .thumb {
     width: 50rpx;

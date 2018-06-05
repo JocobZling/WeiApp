@@ -13,7 +13,8 @@ Page({
         id: 0,
         info: "",
         flag:true,
-        count:0
+        count:0,
+        user:[]
     },
     onLoad: function (options) {
         let that = this;
@@ -37,6 +38,8 @@ Page({
                 },
                 success: function (res) {
                     let clock = res.data.clock;
+                    let user = res.data.user;
+                    console.log(user);
                     let info = "";
                     let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
                     console.log(clock);
@@ -58,7 +61,8 @@ Page({
                         info: info,
                         id: options.id,
                         today:res.data.flag,
-                        count:count
+                        count:count,
+                        user:user
                     })
                 }
             })
@@ -71,6 +75,8 @@ Page({
                 },
                 success: function (res) {
                     let clock = res.data.clock;
+                    let user = res.data.user;
+                    console.log(user);
                     let info = "";
                     let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
                     console.log(clock);
@@ -92,7 +98,8 @@ Page({
                         info: info,
                         id: options.id,
                         today:res.data.flag,
-                        count:count
+                        count:count,
+                        user:user
                     })
                 }
             })

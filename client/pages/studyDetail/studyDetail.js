@@ -260,7 +260,7 @@ Page({
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success(res) {
-
+                        console.log(res);
                     }
                 })
             }

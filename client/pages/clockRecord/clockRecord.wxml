@@ -7,15 +7,15 @@
         </view>
         <view class="item">
             <view>
-                <text>100</text>
+                <text>1</text>
                 <text>当前排名</text>
             </view>
             <view>
-                <text>2</text>
+                <text>{{length}}</text>
                 <text>累计签到</text>
             </view>
             <view>
-                <text>2</text>
+                <text>{{count}}</text>
                 <text>连续签到</text>
             </view>
         </view>
@@ -25,11 +25,11 @@
     <view class="calendar-wrap">
         <template is="calendar" data="{{...calendar}}" />
         <button wx:if="{{flag==true}}">当天已签到</button>
-        <button wx:if="{{flag==false}}" bindtap="jumpToclockSignInfor">去签到</button>
+        <button wx:if="{{flag==false}}" bindtap="jumpToclockSignInfor">未签到</button>
     </view>
 
 </view>
-<view class="MyRecord">
+<view class="MyRecord" wx:if="{{flag==true}}">
     <view style="border-width:3rpx;border-color: #c0c0c0; border-style:none none solid none">
         <text>{{nickname}}的签到记录</text>
     </view>

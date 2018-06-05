@@ -73,16 +73,16 @@
         <button class="participateBtn" wx:if="{{today==true&&exist==true&&flag==true}}">已签到</button>
         <button class="participateBtn" wx:if="{{flag==false}}">已过期</button>
     </view>
-    <view>
-        <view class="leavingMessage">
+    <view wx:for="{{user}}" wx:key="key">
+        <view class="leavingMessage"  >
             <view class="msgImg">
                 <image src="{{thumb}}" class="thumb"></image>
             </view>
             <view class="msgText">
                 <view class="text">
                     <text class="nickname" style="font-size:27rpx">{{nickname}}</text>
-                    <text class="date" style="font-size:20rpx;color:#6c6c6c">2018-5-6 17:41:43</text>
-                    <text class="msg" style="font-size:25rpx">今天天气真好啦啦啦啦啦啦阿拉啦啦啦啦啦啦啦啦</text>
+                    <text class="date" style="font-size:20rpx;color:#6c6c6c">{{item.date}}</text>
+                    <text class="msg" style="font-size:25rpx">{{item.info}}</text>
                 </view>
             </view>
         </view>
