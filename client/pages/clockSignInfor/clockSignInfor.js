@@ -1,66 +1,32 @@
 // pages/clockSignInfor/clockSignInfor.js
+var config = require('../../config.js');
+const token = wx.getStorageSync('token');
+var util = require('../../utils/util');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    data: {
+        id: 0,
+    },
+    onLoad: function (options) {
+        let that = this;
+        that.setData({
+            id: options.id
+        })
+    },
+    save: function (e) {
+        let that = this;
+        console.log(e.detail.value.textarea);
+        let info = e.detail.value.textarea;
+        wx.request({
+            url: `${config.service.host}/checkClock?info=${info}&id=${that.data.id}`,
+            header: {
+                'Authorization': token,
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                wx.navigateTo({
+                    url: `../clockDetailnew/clockDetailnew?id=${that.data.id}&exist=1`,
+                })
+            }
+        });
+    }
 })

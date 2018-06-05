@@ -3,23 +3,18 @@ var config = require('../../config.js');
 const token = wx.getStorageSync('token');
 var util = require('../../utils/util');
 var date = util.formatTime(new Date());
-var app = getApp()
 Page({
-    /**
-     * 页面的初始数据
-     */
     data: {
         hideText: true,
         hideClass: "up",
         item: [],
-        today: false,
         exist: true,
+        today:false,
         id: 0,
-        info:""
+        info: "",
+        flag:true,
+        count:0
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
         let that = this;
         wx.getUserInfo({
@@ -41,7 +36,30 @@ Page({
                     'content-type': 'application/json'
                 },
                 success: function (res) {
-                    console.log(res.data.clock);
+                    let clock = res.data.clock;
+                    let info = "";
+                    let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
+                    console.log(clock);
+                    for (let item of clock[0].clockDetail) {
+                        if (item.date === date) {
+                            info = item.info;
+                        }
+                    }
+                    //判断是否过期
+                    if(clock[0].sumDay===clock[0].lastDay){
+                        count=100;
+                        that.setData({
+                          flag:false
+                        })
+                    }
+                    that.setData({
+                        item: clock[0],
+                        exist: true,
+                        info: info,
+                        id: options.id,
+                        today:res.data.flag,
+                        count:count
+                    })
                 }
             })
         } else {
@@ -53,19 +71,28 @@ Page({
                 },
                 success: function (res) {
                     let clock = res.data.clock;
-                    let info="";
+                    let info = "";
+                    let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
                     console.log(clock);
-                    for(let item of clock.clockDetail){
-                        if(item.date===date){
-                            info=item.info;
+                    for (let item of clock[0].clockDetail) {
+                        if (item.date === date) {
+                            info = item.info;
                         }
                     }
+                    //判断是否过期
+                    if(clock[0].sumDay===clock[0].lastDay){
+                        count=100;
+                        that.setData({
+                            flag:false
+                        })
+                    }
                     that.setData({
-                        item: clock,
+                        item: clock[0],
                         exist: false,
-                        today: false,
-                        info:info,
-                        id: options.id
+                        info: info,
+                        id: options.id,
+                        today:res.data.flag,
+                        count:count
                     })
                 }
             })
@@ -80,56 +107,37 @@ Page({
         })
     },
     jumpToclockSignInfor: function () {
+        let that=this;
         wx.navigateTo({
-            url: '../clockSignInfor/clockSignInfor',
+            url: `../clockSignInfor/clockSignInfor?id=${that.data.item.id}`,
         })
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    jumpChooseSign:function(){
+        let that=this;
+        console.log(that.data.item);
+        wx.showModal({
+            title: '提示',
+            content: '确定要加入打卡吗？',
+            success: function(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定');
+                    wx.request({
+                        url: `${config.service.host}/joinClock?id=${that.data.item.id}`,
+                        header: {
+                            'Authorization': token,
+                            'content-type': 'application/json'
+                        },
+                        success: function (res) {
+                            console.log(res.clock);
+                        }
+                    });
+                    wx.navigateTo({
+                        url: `../clockSignInfor/clockSignInfor?id=${that.data.item.id}`,
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消');
+                }
+            }
+        })
     }
 })

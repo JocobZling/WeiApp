@@ -1,11 +1,12 @@
 <!--pages/clockSignInfor/clockSignInfor.wxml-->
 <view class="main">
-  <view class="signBtn">
-    <button class="cancel">取消</button>
-    <button class="release">保存并发布</button>
-  </view>
-  <view class="signText">
-    <textarea class="signmsg"  placeholder="请输入你想说的话">
-    </textarea>
-  </view>
+    <form bindsubmit="save">
+        <view class="signBtn">
+            <button class="release" form-type="submit">保存并发布</button>
+        </view>
+        <view class="signText">
+            <textarea class="signmsg" placeholder="请输入你想说的话" name="textarea">
+            </textarea>
+        </view>
+    </form>
 </view>

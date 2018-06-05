@@ -15,7 +15,7 @@
 <view class="myJoin">
     <text>我参与的打卡</text>
     <view wx:key="key" wx:for="{{list}}">
-        <navigator url="../clockDetail/clockDetail?id={{item.id}}&exist=1">
+        <navigator url="../clockDetailnew/clockDetailnew?id={{item.id}}&exist=1">
             <view class="detail">
                 <image class="icon" src="{{item.image}}"></image>
                 <view class="text">

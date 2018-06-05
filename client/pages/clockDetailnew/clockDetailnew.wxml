@@ -10,14 +10,14 @@
         <view class="schedule">
             <view class="scheduleText">
                 <view>
-                    <text style="font-size:12px;color:#ffffff">第1/10天</text>
+                    <text style="font-size:12px;color:#ffffff">第{{item.lastDay}}/{{item.sumDay}}天</text>
                 </view>
                 <view>
-                    <text style="font-size:12px;color:#ffffff">共20人签到</text>
+                    <text style="font-size:12px;color:#ffffff">共{{item.length}}人</text>
                 </view>
             </view>
             <view class="scheduleProgress">
-                <progress percent="20" activeColor="#008792"/>
+                <progress percent="{{count}}" activeColor="#008792"/>
             </view>
         </view>
         <view style="height: 10rpx"></view>
@@ -26,7 +26,7 @@
 
     <view class="initiatorName">
         <image class="initiatorImg" src="../../images/me3.png" mode="aspectFit"></image>
-        <text class="initiator" style="font-size:15px">{{item.name}}</text>
+        <text class="initiator" style="font-size:15px">{{item.owner}}</text>
     </view>
     <view class="page-header"></view>
 
@@ -60,7 +60,7 @@
             <image class="function" src="../../images/rank.png" mode="aspectFit"></image>
             <text style="font-size:13px">排行榜</text>
         </view>
-        <navigator url="../clockRecord/clockRecord">
+        <navigator url="../clockRecord/clockRecord?id={{item.id}}">
             <view class="record">
                 <image class="function" src="../../images/plan.png" mode="aspectFit"></image>
                 <text style="font-size:13px">我的记录</text>
@@ -68,7 +68,10 @@
         </navigator>
     </view>
     <view class="participate">
-        <button class="participateBtn" bindtap="jumpToclockSignInfor">参与签到</button>
+        <button class="participateBtn" wx:if="{{today==false&&exist==true&&flag==true}}" bindtap="jumpToclockSignInfor">参与签到</button>
+        <button class="participateBtn" wx:if="{{exist==false&&flag==true}}" bindtap="jumpChooseSign">加入打卡</button>
+        <button class="participateBtn" wx:if="{{today==true&&exist==true&&flag==true}}">已签到</button>
+        <button class="participateBtn" wx:if="{{flag==false}}">已过期</button>
     </view>
     <view>
         <view class="leavingMessage">

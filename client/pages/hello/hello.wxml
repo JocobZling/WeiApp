@@ -6,5 +6,5 @@
     <view class="getininfo">
         <image bindtap="goToSelect" class="getinfo" src="../../images/hello.png"></image>
     </view>
-    <button open-type="getUserInfo">授权登录</button>
+    <button open-type="getUserInfo"bindgetuserinfo="onGotUserInfo">授权登录</button>
 </view>

@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema(
     {
         openid: String,
+        name:String,
+        thumb:String,
         images: [{
             id:Number,
             date:String,

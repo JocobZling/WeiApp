@@ -16,6 +16,8 @@ function generateToken(user) {
 
 router.get('/onlogin', function (req, res, next) {
     let code = req.query.code;
+    let thumb=req.query.thumb;
+    let name=req.query.nickname;
     console.log("code" + code);
     const queryString = `appid=${config.appId}&secret=${config.appSecret}&js_code=${req.query.code}&grant_type=authorization_code`;
     const wxAPI = `https://api.weixin.qq.com/sns/jscode2session?${queryString}`;
@@ -32,6 +34,8 @@ router.get('/onlogin', function (req, res, next) {
                     console.log("没找到！");
                     const user = new User();
                     user.openid = response.data.openid;
+                    user.name=req.query.nickname;
+                    user.thumb=req.query.thumb;
                     user.save();
                     return res.json({
                         token: generateToken({openid: response.data.openid})
