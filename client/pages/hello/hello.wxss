@@ -45,8 +45,8 @@ Page{
 }
 
 .getinfo {
-    width: 330rpx;
-    height: 300rpx;
+    width: 250rpx;
+    height: 100rpx;
 }
 
 .image {

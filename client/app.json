@@ -1,5 +1,6 @@
 {
   "pages": [
+
     "pages/hello/hello",
     "pages/clockIndex/clockIndex",
     "pages/select/select",
