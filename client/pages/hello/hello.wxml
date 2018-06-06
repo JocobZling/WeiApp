@@ -4,7 +4,7 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
     <view class="getininfo">
-        <image bindtap="goToSelect" class="getinfo" src="../../images/hello.png"></image>
+        <button open-type="getUserInfo"bindgetuserinfo="onGotUserInfo" class="getinfo">授权登录</button>
     </view>
-    <button open-type="getUserInfo"bindgetuserinfo="onGotUserInfo">授权登录</button>
+
 </view>

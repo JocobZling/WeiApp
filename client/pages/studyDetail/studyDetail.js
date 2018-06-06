@@ -4,6 +4,9 @@ const ctx = wx.createCanvasContext('myCanvas');
 var screenWidth = 0;
 var screenHeight = 0;
 var pixelRatio = 0; //设备像素比
+var canvasHeight = 0;
+var canvasWidth = 0;
+var canvasScale = 0;  //画板宽高比
 Page({
     data: {
         picture: {},
@@ -26,17 +29,21 @@ Page({
         pictureY:0,
         pictureWidth:0,
         pictureHeight:0,
-        viewHeight: 0
+        viewHeight: 0               //canvas高度
     },
     onLoad: function (params) {
         wx.showLoading({
             title: '加载中',
         });
+        canvasHeight = wx.getSystemInfoSync().windowHeight - 130;
+        canvasWidth = wx.getSystemInfoSync().windowWidth - 20;
+        canvasScale = canvasWidth / canvasHeight;
+        console.log("canvasHeight"+canvasHeight);
         this.setData({
           viewHeight: wx.getSystemInfoSync().windowHeight - 130
         })  
         let that = this;
-        console.log(params.id);
+        console.log("paramsid"+params.id);
         //获得手机屏幕信息
         try {
             var res = wx.getSystemInfoSync();
@@ -74,26 +81,30 @@ Page({
                             success: function (res) {
                                 console.log(res.width);
                                 console.log(res.height);
+                                let imageScale = res.width / res.height;  //图片宽高比
                                 let imageHeight = 0;
-                                if (res.height > 1050 / pixelRatio) {
+                                let imageWidth = 0;
+                                if (res.height > canvasHeight ) {//图片高大于画板高
                                     imageHeight = 0;
-                                    ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, 1050 / pixelRatio);
+                                    imageWidth = (canvasWidth - (canvasHeight * imageScale)) / 2;
+                                    ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasHeight * imageScale , canvasHeight);
                                     ctx.draw();
                                     that.setData({
                                         pictureX:0,
                                         pictureY:imageHeight,
-                                        pictureWidth:screenWidth - 10 * 2 / pixelRatio,
-                                        pictureHeight:1050 / pixelRatio
+                                        pictureWidth: canvasHeight * imageScale,
+                                        pictureHeight: canvasHeight 
                                     });
                                 } else {
-                                    imageHeight = (1050 / pixelRatio - res.height) / 2;
-                                    ctx.drawImage(tempFilePath, 0, imageHeight, screenWidth - 10 * 2 / pixelRatio, res.height);
+                                  imageWidth = 0;
+                                  imageHeight = (canvasHeight - (canvasWidth / imageScale)) / 2;
+                                  ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasWidth , canvasWidth / imageScale);
                                     ctx.draw();
                                     that.setData({
                                         pictureX:0,
                                         pictureY:imageHeight,
-                                        pictureWidth:screenWidth - 10 * 2 / pixelRatio,
-                                        pictureHeight:res.height
+                                        pictureWidth: canvasWidth,
+                                        pictureHeight: canvasWidth / imageScale
                                     });
                                 }
                                 setTimeout(function () {
@@ -104,8 +115,6 @@ Page({
                         });
                     }
                 });
-
-
             }
         })
 
@@ -260,7 +269,7 @@ Page({
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success(res) {
-
+                        console.log(res);
                     }
                 })
             }
