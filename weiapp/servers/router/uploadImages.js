@@ -8,11 +8,11 @@ let bodyParser = require("body-parser");
 let requireAuth = require('./requireAuth');
 router.use(bodyParser.json());
 
-router.post('/upload',requireAuth, function (req, res, next) {
+router.post('/upload', requireAuth, function (req, res, next) {
     let openid = req.openid;
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
-    let dirname = __dirname.replace("\\router", '\\upload');
+    let dirname = __dirname.replace("/server", '/server/upload');
     if (mkdirsSync(dirname, '0777')) {
         let form = new formidable.IncomingForm();
         form.encoding = "utf-8";
@@ -22,11 +22,11 @@ router.post('/upload',requireAuth, function (req, res, next) {
         form.parse(req, function (err, fields, files) {
             if (err) return;
             let fileName = moment().format() + '-' + files.file.name;
-            let newPath = form.uploadDir + "\\" + fileName;
+            let newPath = form.uploadDir + "/" + fileName;
             fs.rename(files.file.path, newPath, function () {
                 let url = newPath;
                 //更新数据库
-                let position = files.file.path.toString().split("\\").pop();
+                let position = '/upload' +"/"+ fileName;
                 console.log(position);
                 console.log(files.file.name);
                 User.find({openid: openid}, (err, user) => {
