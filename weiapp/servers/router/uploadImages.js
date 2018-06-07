@@ -13,6 +13,7 @@ router.post('/upload', requireAuth, function (req, res, next) {
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
     let dirname = __dirname.replace("/servers", '/servers/upload');
+    console.log(dirname);
     if (mkdirsSync(dirname, '0777')) {
         let form = new formidable.IncomingForm();
         form.encoding = "utf-8";
@@ -23,12 +24,13 @@ router.post('/upload', requireAuth, function (req, res, next) {
             if (err) return;
             let fileName = moment().format() + '-' + files.file.name;
             let newPath = form.uploadDir + "/" + fileName;
+            console.log(fileName);
+            console.log(newPath);
             fs.rename(files.file.path, newPath, function () {
-                let url = newPath;
+                let url = 'https://www.jocobzling.club/' + fileName;
                 //更新数据库
                 let position = '/upload' +"/"+ fileName;
                 console.log(position);
-                console.log(files.file.name);
                 User.find({openid: openid}, (err, user) => {
                     let id = user[0].images.length + 1;
                     User.update({openid: openid},
@@ -37,7 +39,7 @@ router.post('/upload', requireAuth, function (req, res, next) {
                                 images: {
                                     id: id,
                                     date: time,
-                                    position: 'https://www.jocobzling.club/' + fileName
+                                    position:url
                                 }
                             }
                         },
