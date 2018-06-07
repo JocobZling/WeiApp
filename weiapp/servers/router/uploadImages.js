@@ -27,7 +27,8 @@ router.post('/upload',requireAuth, function (req, res, next) {
                 let url = newPath;
                 //更新数据库
                 let position = files.file.path.toString().split("\\").pop();
-                console.log(position)
+                console.log(position);
+                console.log(files.file.name);
                 User.find({openid: openid}, (err, user) => {
                     let id = user[0].images.length + 1;
                     User.update({openid: openid},
@@ -36,7 +37,7 @@ router.post('/upload',requireAuth, function (req, res, next) {
                                 images: {
                                     id: id,
                                     date: time,
-                                    position: 'https://www.jocobzling.club' + position
+                                    position: 'https://www.jocobzling.club/' + files.file.name
                                 }
                             }
                         },
