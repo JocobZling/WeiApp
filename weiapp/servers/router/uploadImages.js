@@ -12,7 +12,7 @@ router.post('/upload', requireAuth, function (req, res, next) {
     let openid = req.openid;
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
-    let dirname = __dirname.replace("/server", '/server/upload');
+    let dirname = __dirname.replace("/servers", '/servers/upload');
     if (mkdirsSync(dirname, '0777')) {
         let form = new formidable.IncomingForm();
         form.encoding = "utf-8";
@@ -37,7 +37,7 @@ router.post('/upload', requireAuth, function (req, res, next) {
                                 images: {
                                     id: id,
                                     date: time,
-                                    position: 'https://www.jocobzling.club/' + files.file.name
+                                    position: 'https://www.jocobzling.club/' + fileName
                                 }
                             }
                         },
