@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://jocobzling.mynatapp.cc';
+var host = 'https://www.jocobzling.club';
 
 var config = {
 
@@ -21,7 +21,7 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `https://jocobzling.mynatapp.cc`
+        uploadUrl: `https://www.jocobzling.club`
     }
 };
 

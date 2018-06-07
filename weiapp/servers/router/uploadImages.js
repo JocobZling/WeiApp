@@ -35,7 +35,7 @@ router.post('/upload',requireAuth, function (req, res, next) {
                                 images: {
                                     id: id,
                                     date: time,
-                                    position: 'https://jocobzling.mynatapp.cc' + '/' + position
+                                    position: 'https://www.jocobzling.club' + '/' + position
                                 }
                             }
                         },
