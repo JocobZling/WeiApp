@@ -1,5 +1,5 @@
 <view class="items" wx:for="{{list}}" wx:key="key">
-    <view class="text" style="background-image: url('https://jocobzling.mynatapp.cc/clock.jpg')">
+    <view class="text" style="background-image: url('https://www.jocobzling.club/clock.jpg')">
         <view style="height: 30rpx"></view>
         <view>{{item.name}}</view>
         <view>发起人：{{item.owner}}</view>
