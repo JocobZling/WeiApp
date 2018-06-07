@@ -12,7 +12,7 @@ router.post('/upload', requireAuth, function (req, res, next) {
     let openid = req.openid;
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
-    let dirname = __dirname.replace("/servers", '/servers/upload');
+    let dirname = __dirname.replace("/servers/router", '/servers/upload');
     console.log(dirname);
     if (mkdirsSync(dirname, '0777')) {
         let form = new formidable.IncomingForm();
