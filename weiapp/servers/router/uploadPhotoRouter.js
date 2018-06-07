@@ -26,7 +26,7 @@ router.post('/upload',requireAuth,function (req, res, next) {
             fs.rename(files.file.path, newPath, function () {
                 let position=files.file.path.toString().split("\\").pop();
                 //drawPicture('../../upload/'+position);
-                console.log('https://www.jocobzling.club'+'/'+position);
+                console.log('https://www.jocobzling.club'+position);
                 res.json({
                     position:position,
                 })
