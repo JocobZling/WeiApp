@@ -6,7 +6,7 @@ let axios = require('axios');
 let requireAuth = require('./requireAuth');
 let config = require('../config');
 
-router.use('/',requireAuth, function (req, res, next) {
+router.use('/', function (req, res, next) {
     console.log(req.query.sign);
     let sign = encodeURI(req.query.sign);//转成URL编码即可使用
     console.log(sign);
