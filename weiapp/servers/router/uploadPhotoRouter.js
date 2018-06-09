@@ -11,7 +11,7 @@ router.post('/upload',requireAuth,function (req, res, next) {
     let openid=req.openid;
     let moment = require('moment');
     let time = moment().format('YYYY-MM-DD');
-    let dirname = __dirname.replace("\\router", '\\upload');
+    let dirname = __dirname.replace("/servers/router", '/servers/upload');
     //console.log(dirname);
     if (mkdirsSync(dirname, '0777')) {
         let form = new formidable.IncomingForm();
@@ -22,13 +22,15 @@ router.post('/upload',requireAuth,function (req, res, next) {
         form.parse(req, function (err, fields, files) {
             if (err) return;
             let fileName = moment().format() + '-' + files.file.name;
-            let newPath = form.uploadDir + "\\" + fileName;
+            let newPath = form.uploadDir + "/" + fileName;
+            //console.log(fileName);
+            //console.log(newPath);
             fs.rename(files.file.path, newPath, function () {
-                let position=files.file.path.toString().split("\\").pop();
-                //drawPicture('../../upload/'+position);
-                console.log('https://www.jocobzling.club'+position);
+                let url = 'https://www.jocobzling.club/' + fileName;
+                //let position = '/upload' +"/"+ fileName;
+                console.log(url);
                 res.json({
-                    position:position,
+                    position:url,
                 })
             });
         })

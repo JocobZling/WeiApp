@@ -19,8 +19,10 @@ Page({
                 for (let i = 0; i < exist.length; i++) {
                     if (exist[i] === 1) {
                         clock[i].exist = 1;
-                    } else {
+                    } else if(exist[i] === 2){
                         clock[i].exist= 2;
+                    }else{
+                        clock[i].exist= 3;
                     }
                 }
                 console.log(clock);
