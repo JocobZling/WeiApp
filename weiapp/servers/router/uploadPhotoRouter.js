@@ -27,10 +27,10 @@ router.post('/upload',requireAuth,function (req, res, next) {
             //console.log(newPath);
             fs.rename(files.file.path, newPath, function () {
                 let url = 'https://www.jocobzling.club/' + fileName;
-                //let position = '/upload' +"/"+ fileName;
+                let position = '/upload' +"/"+ fileName;
                 console.log(url);
                 res.json({
-                    position:url,
+                    position:position,
                 })
             });
         })

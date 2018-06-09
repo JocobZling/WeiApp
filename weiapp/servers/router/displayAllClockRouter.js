@@ -14,9 +14,10 @@ router.use('/', requireAuth, function (req, res, next) {
         }
         for (let item of clock) {
             let day = getDays(date, item.beginDate);
+	    console.log(day+"!!");
             if (item.user.length === 0 && day <= 0) {
                 exist.push(2);
-            }else{
+            }else if(item.user.length === 0 && day > 0){
                 exist.push(3);
             }
             for (let user of item.user) {
@@ -24,8 +25,6 @@ router.use('/', requireAuth, function (req, res, next) {
                     exist.push(1);
                 } else if(day <= 0){
                     exist.push(2);
-                }else{
-                    exist.push(3);
                 }
             }
             clocks.push({
@@ -68,7 +67,7 @@ function getDays(s1, s2) {
     let day2 = s2.split("-");
     let startDate = new Date(day1[0], day1[1] - 1, day1[2]);
     let endDate = new Date(day2[0], day2[1] - 1, day2[2]);
-    return parseInt(Math.abs(endDate - startDate) / 1000 / 60 / 60 / 24) + 1;
+    return parseInt((endDate - startDate) / 1000 / 60/ 60 / 24);
 }
 
 module.exports = router;

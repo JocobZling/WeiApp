@@ -5,12 +5,14 @@ Page({
     data: {
         sign:[],
         time:"",
+        viewHeight:0
     },
     onLoad: function (options) {
         var that=this;
         var time = util.formatTime(new Date());
         this.setData({
             time: time,
+            viewHeight: wx.getSystemInfoSync().windowHeight - 115,
         });
     },
     send:function (e) {

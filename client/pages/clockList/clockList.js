@@ -21,7 +21,7 @@ Page({
                         clock[i].exist = 1;
                     } else if(exist[i] === 2){
                         clock[i].exist= 2;
-                    }else{
+                    }else if(exist[i] === 3){
                         clock[i].exist= 3;
                     }
                 }
