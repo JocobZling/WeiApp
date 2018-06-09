@@ -16,8 +16,10 @@ router.use('/', requireAuth, function (req, res, next) {
         }
         let sumDay= getDays(clock.beginDate, clock.endDate);
         let lastDay=getDays(date,clock.endDate);
-        if(sumDay-lastDay<0){
+        if(lastDay<=0){
             lastDay=0;
+        }else{
+            lastDay=sumDay-lastDay+1;
         }
         clocksDetail.push({
             id: clock.id,
@@ -30,7 +32,7 @@ router.use('/', requireAuth, function (req, res, next) {
             endDate: clock.endDate,
             length: clock.user.length,
             sumDay:sumDay,
-            lastDay:sumDay-lastDay
+            lastDay:lastDay
         });
         User.findOne({openid: req.openid}, (err, user) => {
             if (err) {
