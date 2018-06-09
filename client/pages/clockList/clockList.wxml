@@ -10,5 +10,6 @@
             <button wx:if="{{item.exist==2}}">立即参与</button>
             <button wx:if="{{item.exist==1}}">已参与</button>
         </navigator>
+            <button wx:if="{{item.exist==3}}">还未开始</button>
     </view>
 </view>
