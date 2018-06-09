@@ -29,7 +29,18 @@ Page({
     },
     choose: function () {
         var that = this;
-        wx.chooseImage({
+        wx.showModal({
+            title: '提示',
+            content: '如有问题请联系https://github.com/JocobZling',
+            success: function(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+/*        wx.chooseImage({
             count: 1,
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
@@ -57,6 +68,6 @@ Page({
                     }
                 })
             }
-        });
+        });*/
     },
 });

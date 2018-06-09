@@ -25,10 +25,10 @@ Page({
         color: "#000000",   //画笔颜色默认值
         tempFilePath: '',   //图片临时位置
         imageList: [],
-        pictureX:0,
-        pictureY:0,
-        pictureWidth:0,
-        pictureHeight:0,
+        pictureX: 0,
+        pictureY: 0,
+        pictureWidth: 0,
+        pictureHeight: 0,
         viewHeight: 0               //canvas高度
     },
     onLoad: function (params) {
@@ -38,12 +38,12 @@ Page({
         canvasHeight = wx.getSystemInfoSync().windowHeight - 130;
         canvasWidth = wx.getSystemInfoSync().windowWidth - 20;
         canvasScale = canvasWidth / canvasHeight;
-        console.log("canvasHeight"+canvasHeight);
+        console.log("canvasHeight" + canvasHeight);
         this.setData({
-          viewHeight: wx.getSystemInfoSync().windowHeight - 130
-        })  
+            viewHeight: wx.getSystemInfoSync().windowHeight - 130
+        })
         let that = this;
-        console.log("paramsid"+params.id);
+        console.log("paramsid" + params.id);
         //获得手机屏幕信息
         try {
             var res = wx.getSystemInfoSync();
@@ -84,25 +84,25 @@ Page({
                                 let imageScale = res.width / res.height;  //图片宽高比
                                 let imageHeight = 0;
                                 let imageWidth = 0;
-                                if (res.height > canvasHeight ) {//图片高大于画板高
+                                if (res.height > canvasHeight) {//图片高大于画板高
                                     imageHeight = 0;
                                     imageWidth = (canvasWidth - (canvasHeight * imageScale)) / 2;
-                                    ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasHeight * imageScale , canvasHeight);
+                                    ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasHeight * imageScale, canvasHeight);
                                     ctx.draw();
                                     that.setData({
-                                        pictureX:0,
-                                        pictureY:imageHeight,
+                                        pictureX: 0,
+                                        pictureY: imageHeight,
                                         pictureWidth: canvasHeight * imageScale,
-                                        pictureHeight: canvasHeight 
+                                        pictureHeight: canvasHeight
                                     });
                                 } else {
-                                  imageWidth = 0;
-                                  imageHeight = (canvasHeight - (canvasWidth / imageScale)) / 2;
-                                  ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasWidth , canvasWidth / imageScale);
+                                    imageWidth = 0;
+                                    imageHeight = (canvasHeight - (canvasWidth / imageScale)) / 2;
+                                    ctx.drawImage(tempFilePath, imageWidth, imageHeight, canvasWidth, canvasWidth / imageScale);
                                     ctx.draw();
                                     that.setData({
-                                        pictureX:0,
-                                        pictureY:imageHeight,
+                                        pictureX: 0,
+                                        pictureY: imageHeight,
                                         pictureWidth: canvasWidth,
                                         pictureHeight: canvasWidth / imageScale
                                     });
@@ -120,68 +120,68 @@ Page({
 
     },
     penSelect1: function (e) {
-      if (this.data.isPopping1) {
-        //缩回动画
-        popp1.call(this);
+        if (this.data.isPopping1) {
+            //缩回动画
+            popp1.call(this);
+            this.setData({
+                isPopping1: false
+            })
+        } else {
+            //弹出动画
+            takeback1.call(this);
+            this.setData({
+                isPopping1: true
+            })
+        }
+        console.log(e.currentTarget);
         this.setData({
-          isPopping1: false
-        })
-      } else {
-        //弹出动画
-        takeback1.call(this);
-        this.setData({
-          isPopping1: true
-        })
-      }
-      console.log(e.currentTarget);
-      this.setData({
-          pen: parseInt(e.currentTarget.dataset.param)
-      });
-      this.isClear = false;
+            pen: parseInt(e.currentTarget.dataset.param)
+        });
+        this.isClear = false;
     },
     penSelect2: function (e) {
-      if (this.data.isPopping2) {
-        //缩回动画
-        popp2.call(this);
+        if (this.data.isPopping2) {
+            //缩回动画
+            popp2.call(this);
+            this.setData({
+                isPopping2: false
+            })
+        } else {
+            //弹出动画
+            takeback2.call(this);
+            this.setData({
+                isPopping2: true
+            })
+        }
+        console.log(e.currentTarget);
         this.setData({
-          isPopping2: false
-        })
-      } else {
-        //弹出动画
-        takeback2.call(this);
-        this.setData({
-          isPopping2: true
-        })
-      }
-      console.log(e.currentTarget);
-      this.setData({
-        pen: parseInt(e.currentTarget.dataset.param)
-      });
-      this.isClear = false;
+            pen: parseInt(e.currentTarget.dataset.param)
+        });
+        this.isClear = false;
     },
     black: function (e) {
-      console.log(e.currentTarget.dataset.color);
-      this.setData({
-        pen: parseInt(e.currentTarget.dataset.param),
-        color: e.currentTarget.dataset.color
-      });
-      this.isClear = false;
+        console.log(e.currentTarget.dataset.color);
+        this.setData({
+            pen: parseInt(e.currentTarget.dataset.param),
+            color: e.currentTarget.dataset.color
+        });
+        this.isClear = false;
     },
     red: function (e) {
-      console.log(e.currentTarget.dataset.color);
-      this.setData({
-        pen: parseInt(e.currentTarget.dataset.param),
-        color: e.currentTarget.dataset.color
-      });
-      this.isClear = false;
+        console.log(e.currentTarget.dataset.color);
+        this.setData({
+            pen: parseInt(e.currentTarget.dataset.param),
+            color: e.currentTarget.dataset.color
+        });
+        this.isClear = false;
     },
     yellow: function (e) {
-      console.log(e.currentTarget.dataset.color);
-      this.setData({
-        pen: parseInt(e.currentTarget.dataset.param),
-        color: e.currentTarget.dataset.color
-      });
-      this.isClear = false;
+        console.log(e.currentTarget.dataset.color);
+        this.setData({
+            pen: parseInt(e.currentTarget.dataset.param),
+            color: e.currentTarget.dataset.color
+        });
+        this.isClear = false;
     },
     remove: function () {
         this.isClear = true;
@@ -270,6 +270,11 @@ Page({
                     filePath: res.tempFilePath,
                     success(res) {
                         console.log(res);
+                        wx.showToast({
+                            title: '保存成功',
+                            icon: 'success',
+                            duration: 2000
+                        })
                     }
                 })
             }
@@ -280,125 +285,126 @@ Page({
 
 
 function popp1() {
-  //plus顺时针旋转
-  var animationPlus1 = wx.createAnimation({
-    duration: 500,
-    timingFunction1: 'ease-out'
-  })
-  var animationBlack1 = wx.createAnimation({
-    duration: 500,
-    timingFunction1: 'ease-out'
-  })
-  var animationRed1 = wx.createAnimation({
-    duration: 500,
-    timingFunction1: 'ease-out'
-  })
-  var animationYellow1 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  animationPlus1.rotateZ(360).step();
-  animationBlack1.translate(-40, -10).rotateZ(180).opacity(1).step();
-  animationRed1.translate(0,-10).rotateZ(180).opacity(1).step();
-  animationYellow1.translate(40, -10).rotateZ(180).opacity(1).step();
-  this.setData({
-    animationPlus1: animationPlus1.export(),
-    animationBlack1: animationBlack1.export(),
-    animationRed1: animationRed1.export(),
-    animationYellow1: animationYellow1.export(),
-  })
-}
-//收回动画
-function takeback1() {
-  //plus逆时针旋转
-  var animationPlus1 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationBlack1 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationRed1 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationYellow1 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  animationPlus1.rotateZ(0).step();
-  animationBlack1.translate(0, 0).rotateZ(0).opacity(0).step();
-  animationRed1.translate(0, 0).rotateZ(0).opacity(0).step();
-  animationYellow1.translate(0, 0).rotateZ(0).opacity(0).step();
-  this.setData({
-    animationPlus1: animationPlus1.export(),
-    animationBlack1: animationBlack1.export(),
-    animationRed1: animationRed1.export(),
-    animationYellow1: animationYellow1.export(),
-  })
+    //plus顺时针旋转
+    var animationPlus1 = wx.createAnimation({
+        duration: 500,
+        timingFunction1: 'ease-out'
+    })
+    var animationBlack1 = wx.createAnimation({
+        duration: 500,
+        timingFunction1: 'ease-out'
+    })
+    var animationRed1 = wx.createAnimation({
+        duration: 500,
+        timingFunction1: 'ease-out'
+    })
+    var animationYellow1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    animationPlus1.rotateZ(360).step();
+    animationBlack1.translate(-40, -10).rotateZ(180).opacity(1).step();
+    animationRed1.translate(0, -10).rotateZ(180).opacity(1).step();
+    animationYellow1.translate(40, -10).rotateZ(180).opacity(1).step();
+    this.setData({
+        animationPlus1: animationPlus1.export(),
+        animationBlack1: animationBlack1.export(),
+        animationRed1: animationRed1.export(),
+        animationYellow1: animationYellow1.export(),
+    })
 }
 
+//收回动画
+function takeback1() {
+    //plus逆时针旋转
+    var animationPlus1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationBlack1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationRed1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationYellow1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    animationPlus1.rotateZ(0).step();
+    animationBlack1.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationRed1.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationYellow1.translate(0, 0).rotateZ(0).opacity(0).step();
+    this.setData({
+        animationPlus1: animationPlus1.export(),
+        animationBlack1: animationBlack1.export(),
+        animationRed1: animationRed1.export(),
+        animationYellow1: animationYellow1.export(),
+    })
+}
 
 
 //弹出动画
 function popp2() {
-  //plus顺时针旋转
-  var animationPlus2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationBlack2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationRed2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationYellow2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  animationPlus2.rotateZ(360).step();
-  animationBlack2.translate(10, -10).rotateZ(180).opacity(1).step();
-  animationRed2.translate(50, -10).rotateZ(180).opacity(1).step();
-  animationYellow2.translate(90, -10).rotateZ(180).opacity(1).step();
-  this.setData({
-    animationPlus2: animationPlus2.export(),
-    animationBlack2: animationBlack2.export(),
-    animationRed2: animationRed2.export(),
-    animationYellow2: animationYellow2.export(),
-  })
+    //plus顺时针旋转
+    var animationPlus2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationBlack2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationRed2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationYellow2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    animationPlus2.rotateZ(360).step();
+    animationBlack2.translate(10, -10).rotateZ(180).opacity(1).step();
+    animationRed2.translate(50, -10).rotateZ(180).opacity(1).step();
+    animationYellow2.translate(90, -10).rotateZ(180).opacity(1).step();
+    this.setData({
+        animationPlus2: animationPlus2.export(),
+        animationBlack2: animationBlack2.export(),
+        animationRed2: animationRed2.export(),
+        animationYellow2: animationYellow2.export(),
+    })
 }
+
 //收回动画
 function takeback2() {
-  //plus逆时针旋转
-  var animationPlus2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationBlack2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationRed2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  var animationYellow2 = wx.createAnimation({
-    duration: 500,
-    timingFunction: 'ease-out'
-  })
-  animationPlus2.rotateZ(0).step();
-  animationBlack2.translate(0, 0).rotateZ(0).opacity(0).step();
-  animationRed2.translate(0, 0).rotateZ(0).opacity(0).step();
-  animationYellow2.translate(0, 0).rotateZ(0).opacity(0).step();
-  this.setData({
-    animationPlus2: animationPlus2.export(),
-    animationBlack2: animationBlack2.export(),
-    animationRed2: animationRed2.export(),
-    animationYellow2: animationYellow2.export(),
-  })
+    //plus逆时针旋转
+    var animationPlus2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationBlack2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationRed2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    var animationYellow2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease-out'
+    })
+    animationPlus2.rotateZ(0).step();
+    animationBlack2.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationRed2.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationYellow2.translate(0, 0).rotateZ(0).opacity(0).step();
+    this.setData({
+        animationPlus2: animationPlus2.export(),
+        animationBlack2: animationBlack2.export(),
+        animationRed2: animationRed2.export(),
+        animationYellow2: animationYellow2.export(),
+    })
 }
 
