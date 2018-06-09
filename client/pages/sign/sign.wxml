@@ -1,7 +1,7 @@
 <view class="page-header">
     <text class="page-header-text">今日运势</text>
 </view>
-<scroll-view class="page-body" scroll-y="true">
+<scroll-view class="page-body" scroll-y="true" style="height:{{viewHeight}}px">
     <form bindsubmit="send">
         <view class="sendMsg">
             <view class="weui-cell weui-cell_input">
@@ -60,7 +60,6 @@
             <text>总结：{{sign.summary}}</text>
         </view>
     </view>
-    <view style="height: 70px"></view>
 </scroll-view>
 <view class="weui-footer weui-footer_fixed-bottom">
     <view class="weui-footer__links">
