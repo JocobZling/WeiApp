@@ -13,28 +13,29 @@ router.use('/', requireAuth, function (req, res, next) {
             return console.log(err);
         }
         for (let item of clock) {
-            if (getDays(date, item.beginDate)>0) {
+            let day = getDays(date, item.beginDate);
+            if (item.user.length === 0 && day <= 0) {
+                exist.push(2);
+            }else{
                 exist.push(3);
-            } else {
-                if (item.user.length === 0) {
-                    exist.push(2);
-                }
-                for (let user of item.user) {
-                    if (user.openid === req.openid) {
-                        exist.push(1);
-                    } else {
-                        exist.push(2);
-                    }
-                }
-                clocks.push({
-                    id: item.id,
-                    name: item.name,
-                    owner: item.owner,
-                    detail: item.detail,
-                    beginDate: item.beginDate,
-                    endDate: item.endDate
-                });
             }
+            for (let user of item.user) {
+                if (user.openid === req.openid && day <= 0) {
+                    exist.push(1);
+                } else if(day <= 0){
+                    exist.push(2);
+                }else{
+                    exist.push(3);
+                }
+            }
+            clocks.push({
+                id: item.id,
+                name: item.name,
+                owner: item.owner,
+                detail: item.detail,
+                beginDate: item.beginDate,
+                endDate: item.endDate
+            });
         }
         console.log(exist);
         res.json({
