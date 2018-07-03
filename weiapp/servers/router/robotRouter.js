@@ -5,7 +5,7 @@ router.use(bodyParser.json());
 let axios = require('axios');
 let requireAuth = require('./requireAuth');
 let config = require('../config');
-router.use('/', function (req, res, next) {
+router.use('/',requireAuth, function (req, res, next) {
     console.log(req.query.info);
     const robotApi = `http://www.tuling123.com/openapi/api`;
     axios.post(robotApi, {

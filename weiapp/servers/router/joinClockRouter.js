@@ -13,7 +13,7 @@ router.use('/', requireAuth, function (req, res) {
             msg: "出错了！"
         });
         Clock.update({id: req.query.id},
-            {$push: {user: {openid: req.openid, date: req.query.date}}},
+            {$push: {user: {openid: req.openid,joinDate: date}}},
             (err, msg) => {
                 if (err) return res.json({
                     msg: "出错了！"
