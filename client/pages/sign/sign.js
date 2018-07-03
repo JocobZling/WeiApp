@@ -1,6 +1,5 @@
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 Page({
     data: {
         sign:[],
@@ -8,7 +7,6 @@ Page({
         viewHeight:0
     },
     onLoad: function (options) {
-        var that=this;
         var time = util.formatTime(new Date());
         this.setData({
             time: time,
@@ -22,6 +20,7 @@ Page({
     getSign:function (sign) {
         let url=`${config.service.host}/sign?sign=${sign}`;
         let that=this;
+        const token = wx.getStorageSync('token');
         wx.request({
             url:url,
             header:{

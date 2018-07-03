@@ -1,5 +1,4 @@
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 const recorderManager = wx.getRecorderManager();
 Page({
     data: {
@@ -67,6 +66,7 @@ Page({
         console.log(sendMsg);
         var that = this;//获取数据
         var url = `${config.service.host}/robot?info=${sendMsg}`;
+        const token = wx.getStorageSync('token');
         wx.request({
             url: url,
             header: {

@@ -1,6 +1,5 @@
 // pages/clockSignInfor/clockSignInfor.js
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 var util = require('../../utils/util');
 Page({
     data: {
@@ -16,6 +15,7 @@ Page({
         let that = this;
         console.log(e.detail.value.textarea);
         let info = e.detail.value.textarea;
+        const token = wx.getStorageSync('token');
         wx.request({
             url: `${config.service.host}/checkClock?info=${info}&id=${that.data.id}`,
             header: {

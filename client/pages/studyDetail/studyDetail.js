@@ -1,5 +1,4 @@
 const config = require('../../config');
-const token = wx.getStorageSync('token');
 const ctx = wx.createCanvasContext('myCanvas');
 var screenWidth = 0;
 var screenHeight = 0;
@@ -32,6 +31,7 @@ Page({
         viewHeight: 0               //canvas高度
     },
     onLoad: function (params) {
+        const token = wx.getStorageSync('token');
         wx.showLoading({
             title: '加载中',
         });
@@ -56,6 +56,7 @@ Page({
         } catch (e) {
             console.log(e);
         }
+        console.log(token);
         wx.request({
             url: `${config.service.host}/detail?id=${params.id}`,
             header: {
