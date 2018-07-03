@@ -1,5 +1,4 @@
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 var util = require('../../utils/util');
 var date = util.formatTime(new Date());
 import initCalendar, {getSelectedDay, jumpToToday} from '../../template/calendar/index';
@@ -17,6 +16,7 @@ Page({
     },
     onLoad: function (options) {
         let that = this;
+        const token = wx.getStorageSync('token');
         wx.getUserInfo({
             success: function (res) {
                 that.setData({
@@ -35,6 +35,7 @@ Page({
                 console.log(res.data.user);
                 let user = res.data.user;
                 let count=getCount(user[0].signInDate);
+                console.log(user[0].signInDate);
                 that.setData({
                     userAllRecord: user[0],
                     id: options.id,
@@ -81,6 +82,7 @@ Page({
                 s = `${day[0].year}-${m}-${d}`;
                 console.log(s);
                 let that = this;
+                const token = wx.getStorageSync('token');
                 wx.request({
                     url: `${config.service.host}/myClockRecord?id=${this.data.id}`,
                     header: {
@@ -133,7 +135,7 @@ function getCount(sign) {
     let count = 1;
     for (let i = 0; i < sign.length - 1; i++) {
         let today = sign[i].date;
-        if (sign[i + 1].date.split("-")[2] === (sign[i].date.split("-")[2] + 1) &&
+        if (parseInt(sign[i + 1].date.split("-")[2]) === (parseInt(sign[i].date.split("-")[2]) + 1) &&
             sign[i + 1].date.split("-")[0] === sign[i].date.split("-")[0] &&
             sign[i + 1].date.split("-")[1] === sign[i].date.split("-")[1]) {
             count++;

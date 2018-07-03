@@ -1,5 +1,4 @@
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 Page({
     data: {
         imgUrls: [
@@ -15,6 +14,7 @@ Page({
     },
     onLoad: function () {
         let that = this;
+        const token = wx.getStorageSync('token');
         wx.request({
             url: `${config.service.host}/myClock`,
             header: {
@@ -45,19 +45,20 @@ Page({
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading() ;//在标题栏中显示加载
         let that = this;
+        const token = wx.getStorageSync('token');
         wx.request({
-            url: `${config.service.host}/myClock`,
-            header: {
-                'Authorization': token,
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                let clock = res.data.clock;
-                console.log(clock);
-                that.setData({
-                    list: clock,
-                })
-            }
+          url: `${config.service.host}/myClock`,
+          header: {
+            'Authorization': token,
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            let clocks = res.data.clocks;
+            console.log(clocks);
+            that.setData({
+              list: clocks,
+            })
+          }
         });
         //模拟加载
         setTimeout(function () {

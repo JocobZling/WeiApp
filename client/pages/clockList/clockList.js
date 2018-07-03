@@ -1,11 +1,12 @@
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
+
 Page({
     data: {
         list: []
     },
     onLoad: function (options) {
         let that = this;
+        const token = wx.getStorageSync('token');
         wx.request({
             url: `${config.service.host}/clockList`,
             header: {

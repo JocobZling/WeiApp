@@ -1,6 +1,5 @@
 var config = require('../../config.js');
 var util = require('../../utils/util.js');
-const token = wx.getStorageSync('token');
 
 Page({
     data: {
@@ -11,6 +10,7 @@ Page({
     },
     onLoad: function () {
         let that = this;
+        const token = wx.getStorageSync('token');
         wx.request({
             url: `${config.service.host}/study`,
             header: {
@@ -56,8 +56,10 @@ Page({
                 deleteId.push(imagePosition[i].id);
             }
         }
+        const token = wx.getStorageSync('token');
         wx.request({
             url: `${config.service.host}/deleteStudyItems?id=${deleteId}`,
+            
             header: {
                 'Authorization': token,
                 'content-type': 'application/json'

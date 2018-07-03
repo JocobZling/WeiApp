@@ -1,6 +1,5 @@
 // pages/clockDetailnew/clockDetailnew.js
 var config = require('../../config.js');
-const token = wx.getStorageSync('token');
 var util = require('../../utils/util');
 var date = util.formatTime(new Date());
 Page({
@@ -14,9 +13,11 @@ Page({
         info: "",
         flag:true,
         count:0,
-        user:[]
+        user:[],
+        optionExist:""
     },
     onLoad: function (options) {
+        const token = wx.getStorageSync('token');
         let that = this;
         wx.getUserInfo({
             success: function (res) {
@@ -26,9 +27,6 @@ Page({
                 })
             }
         });
-        console.log(options.id);
-        console.log(options.exist);
-        console.log(date);
         if (options.exist === "1") {
             wx.request({
                 url: `${config.service.host}/clockItem?id=${options.id}`,
@@ -62,7 +60,8 @@ Page({
                         id: options.id,
                         today:res.data.flag,
                         count:count,
-                        user:user
+                        user:user,
+                        optionExist:options.exist
                     })
                 }
             })
@@ -99,7 +98,8 @@ Page({
                         id: options.id,
                         today:res.data.flag,
                         count:count,
-                        user:user
+                        user:user,
+                        optionExist:options.exist
                     })
                 }
             })
@@ -122,6 +122,7 @@ Page({
     jumpChooseSign:function(){
         let that=this;
         console.log(that.data.item);
+        const token = wx.getStorageSync('token');
         wx.showModal({
             title: '提示',
             content: '确定要加入打卡吗？',
@@ -146,5 +147,88 @@ Page({
                 }
             }
         })
-    }
+    },
+    onPullDownRefresh: function (options) {
+        wx.showNavigationBarLoading() ;//在标题栏中显示加载
+        const token = wx.getStorageSync('token');
+        let that = this;
+        console.log(that.data.optionExist);
+        console.log(that.data.id);
+        if (that.data.optionExist === "1") {
+            wx.request({
+                url: `${config.service.host}/clockItem?id=${that.data.id}`,
+                header: {
+                    'Authorization': token,
+                    'content-type': 'application/json'
+                },
+                success: function (res) {
+                    let clock = res.data.clock;
+                    let user = res.data.user;
+                    let info = "";
+                    let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
+                    for (let item of clock[0].clockDetail) {
+                        if (item.date === date) {
+                            info = item.info;
+                        }
+                    }
+                    //判断是否过期
+                    if(clock[0].sumDay===clock[0].lastDay){
+                        count=100;
+                        that.setData({
+                            flag:false
+                        })
+                    }
+                    that.setData({
+                        item: clock[0],
+                        exist: true,
+                        info: info,
+                        today:res.data.flag,
+                        count:count,
+                        user:user,
+                    })
+                }
+            })
+        } else {
+            wx.request({
+                url: `${config.service.host}/clockItem?id=${that.data.id}`,
+                header: {
+                    'Authorization': token,
+                    'content-type': 'application/json'
+                },
+                success: function (res) {
+                    let clock = res.data.clock;
+                    let user = res.data.user;
+                    let info = "";
+                    let count=Math.floor((clock[0].lastDay)/(clock[0].sumDay)*100);
+                    console.log(clock);
+                    for (let item of clock[0].clockDetail) {
+                        if (item.date === date) {
+                            info = item.info;
+                        }
+                    }
+                    //判断是否过期
+                    if(clock[0].sumDay===clock[0].lastDay){
+                        count=100;
+                        that.setData({
+                            flag:false
+                        })
+                    }
+                    that.setData({
+                        item: clock[0],
+                        exist: false,
+                        info: info,
+                        today:res.data.flag,
+                        count:count,
+                        user:user,
+                    })
+                }
+            })
+        }
+        //模拟加载
+        setTimeout(function () {
+            // complete
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
+        }, 1500);
+    },
 })
